@@ -26,15 +26,15 @@ void solve(string in,int i){
 
     if(i <= 2){
         ranN.param(uniform_int_distribution<ll>::param_type(1, ll(1e3)));
-        ranprime_idx.param(uniform_int_distribution<ll>::param_type(0, 1253));
+        ranprime_idx.param(uniform_int_distribution<ll>::param_type(0, 1252));
         ranfactor.param(uniform_int_distribution<ll>::param_type(2, ll(1e4)));
-    }else if(i==3){
-        ranN.param(uniform_int_distribution<ll>::param_type(ll(1e5), ll(1e5)));
-        ranprime_idx.param(uniform_int_distribution<ll>::param_type(2000, 41663));
+    }else if(i <= 4){
+        ranN.param(uniform_int_distribution<ll>::param_type(ll(5e4), ll(1e5)));
+        ranprime_idx.param(uniform_int_distribution<ll>::param_type(1253, 41662));
         ranfactor.param(uniform_int_distribution<ll>::param_type(ll(4e5), ll(5e5)));
     }else{
-        ranN.param(uniform_int_distribution<ll>::param_type(ll(5e5), ll(2e6)));
-        ranprime_idx.param(uniform_int_distribution<ll>::param_type(10000, 149155));
+        ranN.param(uniform_int_distribution<ll>::param_type(ll(5e5), ll(1e6)));
+        ranprime_idx.param(uniform_int_distribution<ll>::param_type(41663, 149154));
         ranfactor.param(uniform_int_distribution<ll>::param_type(ll(1e5), ll(2e6)));
     }
 
@@ -58,8 +58,8 @@ int main() {
     }
     sort(prime.begin(),prime.end());
     // cout << prime.size() << sp; //size = 149156
-    // forr(i,0,prime.size())if(prime[i]>ll(1e4)){cout << i;break;} // i = 1253
-    // forr(i,0,prime.size())if(prime[i]>ll(5e5)){cout << i;break;} // i = 41663
+    // forr(i,0,prime.size())if(prime[i]>ll(1e4)){cout << i << sp;break;} // i = 1253
+    // forr(i,0,prime.size())if(prime[i]>ll(5e5)){cout << i << sp;break;} // i = 41663
 
     for(int i = 1; i <= 10; i++){
         solve("./input/input" + (i == 10 ? "10" : "0" + to_string(i)) + ".txt",i);
