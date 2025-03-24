@@ -15,8 +15,8 @@ int main(){macos;
         int x;
         cin >> x;
         ll divisor = 1LL;
-        for(int i=2;i<=x/2;i++){
-            if(x%i==0)divisor *= i;
+        for(int j=2;j<=x/2;j++){
+            if(x%j==0)divisor *= j;
             if(divisor>=x)break;
         }
         if(divisor<x)cout << "YES" << endll;
