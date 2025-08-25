@@ -9,13 +9,13 @@ typedef long long ll;
 using namespace std;
 int main(){macos;
 
-    int q;
+    ll q;
     cin >> q;
-    for(int i=0;i<q;i++){
-        int x;
+    for(ll i=0;i<q;i++){
+        ll x;
         cin >> x;
         ll divisor = 1LL;
-        for(int j=2;j<=x/2;j++){
+        for(ll j=2;j<=x/2;j++){
             if(x%j==0)divisor *= j;
             if(divisor>=x)break;
         }
