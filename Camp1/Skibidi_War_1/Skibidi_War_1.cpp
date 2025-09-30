@@ -12,7 +12,7 @@ int main(){macos;
     ll n,x1,y1,x2,y2;
     cin >> n >> x1 >> y1 >> x2 >> y2;
     ll d = sqrt(pow(x1-x2,2)+pow(y1-y2,2));
-    ll k = pow(n+1,d) + ll(log(n+1)) + 5;
+    ll k = pow(n,d) + ll(log(n)) + 5;
     cout << k;
 
     return 0;
