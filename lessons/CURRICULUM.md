@@ -66,8 +66,9 @@ Total: 29 lessons, about 82 new problems.
 
 ## Order of work
 
-1. **Standard-problem harness** in CP-Author (`problems/` next to
-   `header-problems/`): same Docker image, statement template and verify
+1. **Standard-problem harness** — done: `standard-problems/` next to
+   `header-problems/` (pilot `lp_bsa01_count_range` for *Binary Search on an
+   Array* builds, verifies and imports into the OJ): same Docker image, statement template and verify
    contract (reference AC on all cases, `slow` TLE where a complexity is
    promised), but stdin/stdout problems and an import ZIP for the OJ's batch
    upload. Lessons cannot ship before their problems exist in the grader.
