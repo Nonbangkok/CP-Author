@@ -1,0 +1,18 @@
+{
+  "id": "lp_bexp02_geometric_sum",
+  "title": "Geometric Sum",
+  "author": "Nonbangkok",
+  "categories": ["Math", "Divide and Conquer"],
+  "difficulty": 1400,
+  "collection": "Learn — Foundations",
+  "lesson": "binary-exponentiation",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$Q \\leq 10$ และ $n \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$Q \\leq 10$ และ $n \\leq 10^6$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม ($n$ ใหญ่ได้ถึง $10^{18}$)" }
+  ],
+  "pdf_probe": "เงินในกระปุกออมสิน"
+}

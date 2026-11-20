@@ -1,0 +1,18 @@
+{
+  "id": "lp_stl03_merge_intervals",
+  "title": "Painted Road",
+  "author": "Nonbangkok",
+  "categories": ["Greedy"],
+  "difficulty": 1300,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-containers-sorting",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 50{,}000$ (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "แตะกันแค่จุดเดียวก็นับว่าต่อกัน"
+}

@@ -73,7 +73,10 @@ Total: 29 lessons, about 82 new problems.
    promised), but stdin/stdout problems and an import ZIP for the OJ's batch
    upload. Lessons cannot ship before their problems exist in the grader.
 2. **Batch 1 — Foundations** (11 lessons, ~31 problems), imported and reviewed
-   by the owner.
+   by the owner. **Written (2026-11-20):** 11 lessons in `lessons/foundations/`,
+   31 problems `lp_*` (all verified in one serial run; slow.cpp margins 3.1x–>30x),
+   problems ZIP + lessons bundle accepted by the OJ importers on a scratch
+   database. Waiting for the owner's review and the production import.
 3. **Batch 2 — Intermediate** (13 lessons, ~38 problems).
 4. **Batch 3 — Advanced** (5 lessons, ~13 problems).
 

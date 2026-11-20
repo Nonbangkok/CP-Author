@@ -1,0 +1,18 @@
+{
+  "id": "lp_bit02_party_planning",
+  "title": "Party Planning",
+  "author": "Nonbangkok",
+  "categories": ["Bitmasks"],
+  "difficulty": 1200,
+  "collection": "Learn — Foundations",
+  "lesson": "bitmasks",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 10$" },
+    { "cases": 2, "percent": 20, "note": "$M = 0$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "งานเลี้ยงวันเกิดของน้องนนท์"
+}

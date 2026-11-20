@@ -1,0 +1,18 @@
+{
+  "id": "lp_stl02_compress",
+  "title": "Coordinate Compression",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1100,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-containers-sorting",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 50{,}000$ และมีค่าที่ต่างกันไม่เกิน $100$ ค่า" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 50{,}000$ (ไม่มีเงื่อนไขเพิ่มเติม)" }
+  ],
+  "pdf_probe": "ค่าที่น้อยที่สุดได้เลข"
+}

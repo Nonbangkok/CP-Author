@@ -1,0 +1,18 @@
+{
+  "id": "lp_gs03_mod_product",
+  "title": "Sum and Product Modulo",
+  "author": "Nonbangkok",
+  "categories": ["Math"],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "cpp-for-cp",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 3$ และ $a_i \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$a_i \\leq 10^9$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "ตัวเลขใหญ่เกินกว่าจะเขียนลงกระดาน"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "lp_tp01_swan_boats",
+  "title": "Swan Boats",
+  "author": "Nonbangkok",
+  "categories": ["Greedy"],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "two-pointers",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 2 \\cdot 10^5$ (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "ใช้เรือน้อยลำที่สุด"
+}

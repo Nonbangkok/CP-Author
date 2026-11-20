@@ -1,0 +1,18 @@
+{
+  "id": "lp_stl04_seen_before",
+  "title": "Seen Before",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-set-map-pq",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 50{,}000$ และมีคำที่ต่างกันไม่เกิน $20$ คำ" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 50{,}000$ (ไม่มีเงื่อนไขเพิ่มเติม)" }
+  ],
+  "pdf_probe": "นับรวมครั้งนี้ด้วย"
+}

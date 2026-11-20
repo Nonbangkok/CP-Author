@@ -1,0 +1,18 @@
+{
+  "id": "lp_bsx01_booth_spacing",
+  "title": "Booth Spacing",
+  "author": "Nonbangkok",
+  "categories": ["Binary Search", "Greedy"],
+  "difficulty": 1300,
+  "collection": "Learn — Foundations",
+  "lesson": "binary-search-answer",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 2, "percent": 20, "note": "$N \\leq 10$, $x_i \\leq 100$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$, $x_i \\leq 10^5$" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 10^5$, $x_i \\leq 10^9$ (ไล่ลองคำตอบทีละค่าไม่ทัน)" }
+  ],
+  "pdf_probe": "ระยะห่างของบูธสองบูธที่ใกล้กันที่สุด"
+}

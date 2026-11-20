@@ -1,0 +1,18 @@
+{
+  "id": "lp_bit01_bit_ops",
+  "title": "Bit Operations",
+  "author": "Nonbangkok",
+  "categories": ["Bitmasks"],
+  "difficulty": 900,
+  "collection": "Learn — Foundations",
+  "lesson": "bitmasks",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 100$, $a_i < 2^{30}$ และ $k < 30$" },
+    { "cases": 2, "percent": 20, "note": "$a_i < 2^{30}$ และ $k < 30$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "แผงไฟของเวทีคอนเสิร์ต"
+}

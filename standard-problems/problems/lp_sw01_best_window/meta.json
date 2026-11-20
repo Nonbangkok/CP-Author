@@ -1,0 +1,18 @@
+{
+  "id": "lp_sw01_best_window",
+  "title": "Best Window",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "sliding-window",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 10^5$ (ต้องเร็วกว่า $O(NK)$)" }
+  ],
+  "pdf_probe": "วันติดกันที่ได้กำไรรวมมากที่สุด"
+}

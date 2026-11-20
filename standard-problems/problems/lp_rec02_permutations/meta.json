@@ -1,0 +1,17 @@
+{
+  "id": "lp_rec02_permutations",
+  "title": "Name Shuffle",
+  "author": "Nonbangkok",
+  "categories": ["String"],
+  "difficulty": 1100,
+  "collection": "Learn — Foundations",
+  "lesson": "recursion",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "ตัวอักษรใน $W$ ไม่ซ้ำกันเลย" },
+    { "cases": 7, "percent": 70, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "เรียงตามลำดับพจนานุกรม"
+}

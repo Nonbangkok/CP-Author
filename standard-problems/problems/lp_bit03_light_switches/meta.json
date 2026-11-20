@@ -1,0 +1,18 @@
+{
+  "id": "lp_bit03_light_switches",
+  "title": "Light Switches",
+  "author": "Nonbangkok",
+  "categories": ["Bitmasks"],
+  "difficulty": 1300,
+  "collection": "Learn — Foundations",
+  "lesson": "bitmasks",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$M \\leq 10$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 20$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "ห้องเรียนที่ไฟดับครึ่งห้อง"
+}

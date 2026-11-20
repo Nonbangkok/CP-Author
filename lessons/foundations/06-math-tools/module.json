@@ -1,0 +1,30 @@
+{
+  "slug": "math-tools",
+  "title": "Math Tools",
+  "summary": "เครื่องมือคณิตศาสตร์ที่ใช้บ่อย: ยกกำลังเร็วแบบ mod และการใช้บิตแทนเซตของของ",
+  "lessons": [
+    {
+      "slug": "binary-exponentiation",
+      "title": "Binary Exponentiation",
+      "summary": "หา a^b mod m ใน O(log b) ด้วยการยกกำลังสองซ้ำ ๆ พร้อมกฎ modular arithmetic ที่ต้องรู้",
+      "minutes": 18,
+      "file": "binary-exponentiation.md",
+      "problems": [
+        { "id": "lp_bexp01_power_mod", "role": "example" },
+        { "id": "lp_bexp02_geometric_sum", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "bitmasks",
+      "title": "Bitmasks",
+      "summary": "ใช้จำนวนเต็มหนึ่งตัวแทนเซต: ตัวดำเนินการบิต, ไล่ทุกเซตย่อย, ไล่ submask และเทคนิค XOR",
+      "minutes": 20,
+      "file": "bitmasks.md",
+      "problems": [
+        { "id": "lp_bit01_bit_ops", "role": "example" },
+        { "id": "lp_bit02_party_planning", "role": "practice" },
+        { "id": "lp_bit03_light_switches", "role": "challenge" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "lp_bsa03_pair_budget",
+  "title": "Pair Budget",
+  "author": "Nonbangkok",
+  "categories": ["Binary Search"],
+  "difficulty": 1400,
+  "collection": "Learn — Foundations",
+  "lesson": "binary-search-array",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 5{,}000$" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 10^5$ (ไล่ทุกคู่ $O(N^2)$ ไม่ทัน)" }
+  ],
+  "pdf_probe": "ซื้อของสองชิ้นที่ต่างกัน"
+}
