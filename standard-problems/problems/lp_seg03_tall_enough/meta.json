@@ -1,0 +1,18 @@
+{
+  "id": "lp_seg03_tall_enough",
+  "title": "Tall Enough",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 2100,
+  "collection": "Learn — Advanced",
+  "lesson": "segment-tree",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 5 \\times 10^4$ (ไล่ดูทีละช่องตั้งแต่ $l$ ไม่ทัน)" }
+  ],
+  "pdf_probe": "ช่องแรกที่เพดานสูงพอ"
+}

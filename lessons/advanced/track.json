@@ -1,0 +1,6 @@
+{
+  "slug": "advanced",
+  "title": "Advanced",
+  "description": "เครื่องมือขั้นสูงที่ใช้บ่อยในการแข่ง: minimum spanning tree, Fenwick tree, segment tree แบบธรรมดาและแบบ lazy propagation และการยกกำลังเมทริกซ์",
+  "modules": ["01-mst", "02-fenwick", "03-segment-tree", "04-math"]
+}

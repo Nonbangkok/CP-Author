@@ -1,0 +1,19 @@
+{
+  "slug": "mst",
+  "title": "Minimum Spanning Tree",
+  "summary": "เลือกเส้นเชื่อมให้ทุกจุดถึงกันด้วยราคารวมน้อยที่สุด: cut property, Kruskal กับ DSU และ Prim กับ priority_queue",
+  "lessons": [
+    {
+      "slug": "mst",
+      "title": "Minimum Spanning Tree (Kruskal + DSU, Prim)",
+      "summary": "spanning tree และ cut property, Kruskal กับ DSU (union by size + path compression), Prim แบบ heap และแบบ O(N^2), ทริกเส้นบังคับ K กลุ่ม และเมื่อราคาซ้ำกัน",
+      "minutes": 30,
+      "file": "mst.md",
+      "problems": [
+        { "id": "lp_mst01_fiber_network", "role": "example" },
+        { "id": "lp_mst02_village_wells", "role": "practice" },
+        { "id": "lp_mst03_candidate_roads", "role": "challenge" }
+      ]
+    }
+  ]
+}

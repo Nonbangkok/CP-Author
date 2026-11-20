@@ -1,0 +1,30 @@
+{
+  "slug": "segment-tree",
+  "title": "Segment Tree",
+  "summary": "ต้นไม้ที่เก็บคำตอบของทุกช่วงที่ได้จากการแบ่งครึ่ง ถามช่วงและแก้ค่าได้ใน O(log N) ตั้งแต่แก้จุดเดียวไปจนถึงแก้ทั้งช่วงด้วย lazy propagation",
+  "lessons": [
+    {
+      "slug": "segment-tree",
+      "title": "Segment Tree",
+      "summary": "build/update/query บน [l, r] ในอาเรย์ 4N, merge แบบ min/max/sum/gcd และแบบ struct, การเดินลงต้นไม้เพื่อหาตำแหน่ง และแบบ bottom-up ที่ไม่ใช้ recursion",
+      "minutes": 25,
+      "file": "segment-tree.md",
+      "problems": [
+        { "id": "lp_seg01_cheapest_stall", "role": "example" },
+        { "id": "lp_seg02_best_streak", "role": "practice" },
+        { "id": "lp_seg03_tall_enough", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "lazy-propagation",
+      "title": "Segment Tree with Lazy Propagation",
+      "summary": "ป้ายค้าง (lazy tag) กับ push down, บวกทั้งช่วงพร้อมถามค่าน้อยสุดหรือผลรวม และลำดับของป้ายตั้งค่ากับป้ายบวกที่ต้องระวัง",
+      "minutes": 19,
+      "file": "lazy-propagation.md",
+      "problems": [
+        { "id": "lp_lazy01_coin_towers", "role": "practice" },
+        { "id": "lp_lazy02_greenhouse", "role": "challenge" }
+      ]
+    }
+  ]
+}

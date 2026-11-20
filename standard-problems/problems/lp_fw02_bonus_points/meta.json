@@ -1,0 +1,18 @@
+{
+  "id": "lp_fw02_bonus_points",
+  "title": "Bonus Points",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1800,
+  "collection": "Learn — Advanced",
+  "lesson": "fenwick-tree",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 5 \\times 10^4$ (บวกคะแนนให้ทีละคนไม่ทัน)" }
+  ],
+  "pdf_probe": "คะแนนปัจจุบันของนักเรียนเลขที่"
+}

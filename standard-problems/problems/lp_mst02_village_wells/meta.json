@@ -1,0 +1,18 @@
+{
+  "id": "lp_mst02_village_wells",
+  "title": "Village Wells",
+  "author": "Nonbangkok",
+  "categories": ["Graph", "Greedy"],
+  "difficulty": 1800,
+  "collection": "Learn — Advanced",
+  "lesson": "mst",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 2, "percent": 20, "note": "$N \\leq 10$, $M \\leq 20$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 3{,}000$, $M \\leq 6{,}000$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "ทุกหมู่บ้านต้องมีน้ำใช้"
+}

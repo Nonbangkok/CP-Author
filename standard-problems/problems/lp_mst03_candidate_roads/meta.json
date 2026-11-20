@@ -1,0 +1,18 @@
+{
+  "id": "lp_mst03_candidate_roads",
+  "title": "Candidate Roads",
+  "author": "Nonbangkok",
+  "categories": ["Graph", "Data Structures"],
+  "difficulty": 2100,
+  "collection": "Learn — Advanced",
+  "lesson": "mst",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 100$, $M \\leq 300$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 2{,}000$, $M \\leq 4{,}000$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (เดินกราฟใหม่ทุกถนนไม่ทัน)" }
+  ],
+  "pdf_probe": "แผนที่ถูกที่สุดอย่างน้อยหนึ่งแผน"
+}

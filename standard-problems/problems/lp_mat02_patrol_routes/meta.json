@@ -1,0 +1,18 @@
+{
+  "id": "lp_mat02_patrol_routes",
+  "title": "Patrol Routes",
+  "author": "Nonbangkok",
+  "categories": ["Math", "Graph"],
+  "difficulty": 2100,
+  "collection": "Learn — Advanced",
+  "lesson": "matrix-exponentiation",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 2, "percent": 20, "note": "$N \\leq 5$, $L \\leq 10$, $Q \\leq 10$" },
+    { "cases": 3, "percent": 30, "note": "$L \\leq 500$, $Q \\leq 10$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม ($L$ ใหญ่ได้ถึง $10^{18}$ และมี $Q$ ได้ถึง $100$ คำถาม)" }
+  ],
+  "pdf_probe": "หุ่นยนต์ยามเดินผ่านทางเดิน"
+}

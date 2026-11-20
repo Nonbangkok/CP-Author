@@ -1,0 +1,19 @@
+{
+  "slug": "fenwick",
+  "title": "Fenwick Tree",
+  "summary": "ผลรวมช่วงที่ข้อมูลเปลี่ยนได้ใน O(log N) ด้วยอาเรย์เดียว: lowbit, range add ด้วยอาเรย์ผลต่าง, นับค่าที่น้อยกว่า และหาตัวที่ k",
+  "lessons": [
+    {
+      "slug": "fenwick-tree",
+      "title": "Fenwick Tree",
+      "summary": "lowbit (i & -i), point update + prefix sum, ผลรวมช่วงจากผลต่างของ prefix, range add / point query ด้วยอาเรย์ผลต่าง, Fenwick บนค่าหลังย่อค่า, หาตัวที่ k ด้วยการไต่ลง และคำถามแบบ offline",
+      "minutes": 24,
+      "file": "fenwick-tree.md",
+      "problems": [
+        { "id": "lp_fw01_shelf_stock", "role": "example" },
+        { "id": "lp_fw02_bonus_points", "role": "practice" },
+        { "id": "lp_fw03_bird_species", "role": "challenge" }
+      ]
+    }
+  ]
+}

@@ -83,7 +83,12 @@ Total: 29 lessons, about 82 new problems.
    one serial run (references <= 31% of the limit, slow.cpp >= 3.1x over it); the 69-problem ZIP
    (239 MiB uncompressed) and the 31-lesson bundle import cleanly with the OJ's importers.
    Reading times calibrated to ~1,125 bytes per minute (18–28 min).
-4. **Batch 3 — Advanced** (5 lessons, ~13 problems).
+4. **Batch 3 — Advanced** (5 lessons, ~13 problems). **Written (2026-11-20):** 5 lessons in
+   `lessons/advanced/` (MST, Fenwick Tree, Segment Tree, Lazy Propagation, Matrix Exponentiation),
+   13 problems `lp_*` (mst, fw, seg, lazy, mat). All 82 problems verified in one serial run
+   (Batch 3 references <= 7% of the limit, Python <= 14% of its x4 limit, slow.cpp >= 3.0x over
+   it); the 82-problem ZIP (302 MiB uncompressed, 1,804 entries) and the 36-lesson bundle import cleanly with the OJ's importers.
+   Fenwick and segment trees are sized at N, Q <= 5*10^4 so Python passes with room to spare.
 
 Each batch: problems built and verified → imported into the grader (hidden,
 then published) → lessons bundle dry-run → owner review → import.
