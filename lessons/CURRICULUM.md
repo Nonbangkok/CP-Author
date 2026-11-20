@@ -1,7 +1,8 @@
 # Curriculum plan
 
-Owner's topic list and writing decisions (2026-11-20). Status: plan, awaiting
-the owner's go-ahead per batch.
+Owner's topic list and writing decisions (2026-11-20). Status: all three
+batches written and verified (2026-11-20); waiting for the owner's review and
+the production import (steps at the end of this file).
 
 ## Decisions
 
@@ -92,3 +93,27 @@ Total: 29 lessons, about 82 new problems.
 
 Each batch: problems built and verified → imported into the grader (hidden,
 then published) → lessons bundle dry-run → owner review → import.
+
+**End-to-end check (2026-11-20).** The 82-problem ZIP and the 36-lesson bundle
+went through the OJ's own importers on a throwaway stack (Postgres 18 + backend
++ Vite, OJ branch `feat/lessons-phase2`): batch upload, Manage › Lessons dry run
+(+36, no issues) and import, bulk publish, then every lesson opened in the
+browser — KaTeX without errors, code tabs, problem cards and practice tables,
+no horizontal overflow at 375 px — and the guest / learner / staff views of a
+hidden problem, a contest problem and a hidden track. No content change was
+needed.
+
+## Production import (owner)
+
+After OJ #58 and #59 are deployed and CP-Author #2 → #3 → #4 are merged, in a
+checkout of `main`:
+
+1. `cd standard-problems && ./run.sh build --all` → `dist/standard-problems.zip`
+   (~124 MiB). Production Manage › Problems → Import ZIP. The 82 `lp_*`
+   problems arrive hidden in the "Learn — …" collections.
+2. Publish them: Hidden tab → select all → Show, until the tab reads 0.
+3. `cd ../lessons && ./run.sh build` → `dist/lessons-bundle.zip`. Production
+   Manage › Lessons → drop it; the dry run must show +36 added, 0 issues, four
+   new tracks. Import. (Tracks are visible at once; Hide them on that page
+   first if you want to read them as staff before learners do.)
+
