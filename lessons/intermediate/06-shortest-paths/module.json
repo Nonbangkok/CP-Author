@@ -1,0 +1,28 @@
+{
+  "slug": "shortest-paths",
+  "title": "Shortest Paths",
+  "summary": "เส้นทางที่สั้นที่สุดบนกราฟมีน้ำหนัก: Dijkstra, Bellman–Ford, Floyd–Warshall, 0-1 BFS และการสร้างกราฟของสถานะ",
+  "lessons": [
+    {
+      "slug": "shortest-paths",
+      "title": "Shortest Paths",
+      "summary": "ทำไม BFS ไม่พอเมื่อเส้นเชื่อมมีน้ำหนัก, Dijkstra กับ priority_queue, Bellman–Ford กับวงจรลบ, Floyd–Warshall ทุกคู่, 0-1 BFS และกราฟของสถานะ",
+      "minutes": 28,
+      "file": "shortest-paths.md",
+      "problems": [
+        {
+          "id": "lp_sp01_delivery_times",
+          "role": "example"
+        },
+        {
+          "id": "lp_sp02_rebate_roads",
+          "role": "practice"
+        },
+        {
+          "id": "lp_sp03_free_tickets",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

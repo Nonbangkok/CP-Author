@@ -1,0 +1,18 @@
+{
+  "id": "lp_dc02_twice_as_big",
+  "title": "Twice as Big",
+  "author": "Nonbangkok",
+  "categories": ["Divide and Conquer"],
+  "difficulty": 1600,
+  "collection": "Learn — Intermediate",
+  "lesson": "divide-and-conquer",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 5{,}000$" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 10^5$ (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "มากกว่าสองเท่าของการ์ดที่วางทีหลัง"
+}

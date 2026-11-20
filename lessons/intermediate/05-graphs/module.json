@@ -1,0 +1,49 @@
+{
+  "slug": "graphs",
+  "title": "Graphs",
+  "summary": "เก็บกราฟด้วย adjacency list แล้วเดินสำรวจด้วย DFS และ BFS ทั้งบนกราฟทั่วไปและบนตาราง",
+  "lessons": [
+    {
+      "slug": "graphs-bfs-dfs",
+      "title": "Graphs, BFS and DFS",
+      "summary": "จุดยอดกับเส้นเชื่อม, adjacency list vs matrix, DFS (recursive และ stack ของเราเอง), connected components, หาวง, BFS หาระยะที่สั้นที่สุด และพรีวิว bipartite",
+      "minutes": 23,
+      "file": "graphs-bfs-dfs.md",
+      "problems": [
+        {
+          "id": "lp_gph01_friend_groups",
+          "role": "example"
+        },
+        {
+          "id": "lp_gph02_one_way_flights",
+          "role": "practice"
+        },
+        {
+          "id": "lp_gph03_rival_teams",
+          "role": "challenge"
+        }
+      ]
+    },
+    {
+      "slug": "flood-fill",
+      "title": "Flood Fill on Grids",
+      "summary": "ตารางคือกราฟที่ซ่อนอยู่: เพื่อนบ้าน 4/8 ทิศด้วย dr/dc, นับเกาะและพื้นที่, BFS บนตาราง และ multi-source BFS",
+      "minutes": 19,
+      "file": "flood-fill.md",
+      "problems": [
+        {
+          "id": "lp_ff01_crop_regions",
+          "role": "example"
+        },
+        {
+          "id": "lp_ff02_maze_runner",
+          "role": "practice"
+        },
+        {
+          "id": "lp_ff03_fire_escape",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

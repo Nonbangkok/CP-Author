@@ -1,0 +1,18 @@
+{
+  "id": "lp_gph02_one_way_flights",
+  "title": "One-Way Flights",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1400,
+  "collection": "Learn — Intermediate",
+  "lesson": "graphs-bfs-dfs",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, M, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$Q \\leq 10$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (BFS ใหม่ทุกคำถามไม่ทัน)" }
+  ],
+  "pdf_probe": "จำนวนเที่ยวบินที่น้อยที่สุด"
+}

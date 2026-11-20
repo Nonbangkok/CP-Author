@@ -1,0 +1,18 @@
+{
+  "id": "lp_mono02_billboard",
+  "title": "Billboard",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1600,
+  "collection": "Learn — Intermediate",
+  "lesson": "monotonic-stack-queue",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 10^5$ (ลองทุกช่วงของตึกไม่ทัน)" }
+  ],
+  "pdf_probe": "ป้ายโฆษณารูปสี่เหลี่ยมผืนผ้า"
+}

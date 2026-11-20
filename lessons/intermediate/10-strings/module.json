@@ -1,0 +1,28 @@
+{
+  "slug": "strings",
+  "title": "Strings",
+  "summary": "หาคำในข้อความยาว ๆ ในเวลาเชิงเส้น หาคาบของสตริง และเทียบ substring ใน O(1) ด้วย hashing",
+  "lessons": [
+    {
+      "slug": "string-algorithms",
+      "title": "String Algorithms",
+      "summary": "ทำไม naive matching เป็น O(NM), prefix function / KMP, คาบของสตริง, Z-function และ polynomial hashing กับเรื่อง anti-hash",
+      "minutes": 20,
+      "file": "string-algorithms.md",
+      "problems": [
+        {
+          "id": "lp_str01_chant_count",
+          "role": "example"
+        },
+        {
+          "id": "lp_str02_wallpaper",
+          "role": "practice"
+        },
+        {
+          "id": "lp_str03_common_prefix",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

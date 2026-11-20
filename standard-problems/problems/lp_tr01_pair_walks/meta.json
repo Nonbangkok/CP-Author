@@ -1,0 +1,18 @@
+{
+  "id": "lp_tr01_pair_walks",
+  "title": "Pair Walks",
+  "author": "Nonbangkok",
+  "categories": ["Tree"],
+  "difficulty": 1300,
+  "collection": "Learn — Intermediate",
+  "lesson": "tree-basics",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 4{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 2 \\times 10^5$ (BFS จากทุกบ้านไม่ทัน)" }
+  ],
+  "pdf_probe": "ระยะทางรวมของทุกคู่บ้าน"
+}

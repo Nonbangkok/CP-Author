@@ -1,0 +1,28 @@
+{
+  "slug": "search",
+  "title": "State Space Search",
+  "summary": "มองปริศนาเป็น state กับ move แล้วเดินด้วย backtracking ที่ตัดกิ่งเร็ว หรือ BFS หาก้าวที่น้อยที่สุด",
+  "lessons": [
+    {
+      "slug": "state-space-search",
+      "title": "State Space Search",
+      "summary": "backtracking + pruning, BFS บน state, การเข้ารหัส state, BFS จากเป้าหมาย และ meet in the middle เบื้องต้น",
+      "minutes": 25,
+      "file": "state-space-search.md",
+      "problems": [
+        {
+          "id": "lp_ss01_three_buttons",
+          "role": "example"
+        },
+        {
+          "id": "lp_ss02_blocked_queens",
+          "role": "practice"
+        },
+        {
+          "id": "lp_ss03_spin_tiles",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "sweep-line",
+  "title": "Sweep Line",
+  "summary": "กวาดเส้นจากซ้ายไปขวาแล้วหยุดเฉพาะที่เหตุการณ์ เปลี่ยนโจทย์ช่วงซ้อนกันให้เหลือการเรียงหนึ่งครั้งกับการเดินหนึ่งรอบ",
+  "lessons": [
+    {
+      "slug": "sweep-line",
+      "title": "Sweep Line",
+      "summary": "ช่วงเป็นเหตุการณ์ +1/−1, ลำดับเมื่อตำแหน่งเท่ากัน, จำนวนที่ซ้อนกันมากที่สุด, ความยาวที่ถูกคลุม, กวาดพร้อม set ของสิ่งที่เปิดอยู่ และคำถามแบบ offline",
+      "minutes": 21,
+      "file": "sweep-line.md",
+      "problems": [
+        {
+          "id": "lp_swp01_busiest_moment",
+          "role": "example"
+        },
+        {
+          "id": "lp_swp02_camera_coverage",
+          "role": "practice"
+        },
+        {
+          "id": "lp_swp03_low_awning",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

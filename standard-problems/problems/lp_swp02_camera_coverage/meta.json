@@ -1,0 +1,18 @@
+{
+  "id": "lp_swp02_camera_coverage",
+  "title": "Camera Coverage",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 1500,
+  "collection": "Learn — Intermediate",
+  "lesson": "sweep-line",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 3{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 10^5$ (นับกล้องใหม่ทุกช่วงย่อยไม่ทัน)" }
+  ],
+  "pdf_probe": "ถูกกล้องมองเห็นอย่างน้อย"
+}

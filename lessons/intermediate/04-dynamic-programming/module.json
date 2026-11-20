@@ -1,0 +1,49 @@
+{
+  "slug": "dynamic-programming",
+  "title": "Dynamic Programming",
+  "summary": "คิดแต่ละปัญหาย่อยครั้งเดียวแล้วจดไว้: ตั้ง state, หา transition, base case และลำดับการคำนวณ จาก 1D ไปจนถึงตารางสองมิติและ knapsack",
+  "lessons": [
+    {
+      "slug": "dp-basics",
+      "title": "DP Basics",
+      "summary": "ปัญหาย่อยที่ซ้ำกัน, memoisation กับ tabulation, สี่คำถามก่อนเขียน DP, ขึ้นบันได, LIS, coin change แบบนับวิธีกับเหรียญน้อยสุด",
+      "minutes": 24,
+      "file": "dp-basics.md",
+      "problems": [
+        {
+          "id": "lp_dp01_frog_jumps",
+          "role": "example"
+        },
+        {
+          "id": "lp_dp02_secret_code",
+          "role": "practice"
+        },
+        {
+          "id": "lp_dp03_lakeside_stalls",
+          "role": "challenge"
+        }
+      ]
+    },
+    {
+      "slug": "dp-grids-knapsack",
+      "title": "DP on Grids & Knapsack",
+      "summary": "state สองมิติ: เส้นทางในตาราง, LCS กับ edit distance, 0/1 knapsack แบบอาเรย์เดียว (ทำไมต้องวนถอยหลัง), unbounded knapsack และการย้อนหาของที่เลือก",
+      "minutes": 21,
+      "file": "dp-grids-knapsack.md",
+      "problems": [
+        {
+          "id": "lp_dpk01_gold_path",
+          "role": "example"
+        },
+        {
+          "id": "lp_dpk02_typo_fixer",
+          "role": "practice"
+        },
+        {
+          "id": "lp_dpk03_heavy_treasures",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

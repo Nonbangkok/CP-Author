@@ -1,0 +1,18 @@
+{
+  "id": "lp_sp01_delivery_times",
+  "title": "Delivery Times",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1400,
+  "collection": "Learn — Intermediate",
+  "lesson": "shortest-paths",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$, $M \\leq 2{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 5{,}000$, $M \\leq 10^4$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "เวลาที่น้อยที่สุดในการส่งของ"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "lp_dp02_secret_code",
+  "title": "Secret Code",
+  "author": "Nonbangkok",
+  "categories": ["Dynamic Programming", "String"],
+  "difficulty": 1400,
+  "collection": "Learn — Intermediate",
+  "lesson": "dp-basics",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 20$" },
+    { "cases": 7, "percent": 70, "note": "$N \\leq 2 \\times 10^5$ (ไล่ทุกวิธีแบ่งไม่ทัน)" }
+  ],
+  "pdf_probe": "จำนวนวิธีแบ่งสายตัวเลข"
+}

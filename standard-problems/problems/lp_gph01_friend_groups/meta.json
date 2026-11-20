@@ -1,0 +1,18 @@
+{
+  "id": "lp_gph01_friend_groups",
+  "title": "Friend Groups",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1200,
+  "collection": "Learn — Intermediate",
+  "lesson": "graphs-bfs-dfs",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, M \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, M \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, M \\leq 10^5$ (ต้องเร็วกว่า $O(N \\cdot M)$)" }
+  ],
+  "pdf_probe": "กลุ่มเพื่อนที่ใหญ่ที่สุด"
+}

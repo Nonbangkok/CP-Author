@@ -1,0 +1,18 @@
+{
+  "id": "lp_ff02_maze_runner",
+  "title": "Maze Runner",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1400,
+  "collection": "Learn — Intermediate",
+  "lesson": "flood-fill",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$R, C \\leq 30$" },
+    { "cases": 3, "percent": 30, "note": "$R, C \\leq 100$" },
+    { "cases": 4, "percent": 40, "note": "$R, C \\leq 1{,}000$ (ต้องเป็น $O(RC)$)" }
+  ],
+  "pdf_probe": "จำนวนก้าวที่น้อยที่สุด"
+}

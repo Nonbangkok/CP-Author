@@ -1,0 +1,28 @@
+{
+  "slug": "monotonic",
+  "title": "Monotonic Stack & Queue",
+  "summary": "ทิ้งตัวที่ไม่มีวันเป็นคำตอบอีกแล้ว ของที่เหลือจึงเรียงทางเดียว ได้คำตอบแบบ O(N) ทั้งที่หน้าตาเป็นลูปซ้อน",
+  "lessons": [
+    {
+      "slug": "monotonic-stack-queue",
+      "title": "Monotonic Stack & Monotonic Queue",
+      "summary": "next greater element, ตัวที่เล็กกว่าที่ใกล้ที่สุดทั้งสองข้าง, สี่เหลี่ยมที่ใหญ่ที่สุดในฮิสโตแกรม และ deque สำหรับค่ามากสุด/น้อยสุดในหน้าต่าง",
+      "minutes": 20,
+      "file": "monotonic-stack-queue.md",
+      "problems": [
+        {
+          "id": "lp_mono01_warmer_days",
+          "role": "example"
+        },
+        {
+          "id": "lp_mono02_billboard",
+          "role": "practice"
+        },
+        {
+          "id": "lp_mono03_stable_stretch",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}
