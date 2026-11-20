@@ -4,8 +4,9 @@
     ./run.sh build --all
     ./run.sh build lp_bsa01_count_range [...]
 
-For each problem: render statement.md to <id>.pdf (and prove the Thai and the
-math survived into the PDF's text), run gen.py for the 10 inputs, compile
+For each problem: run the reference on samples/ for the examples, render
+statement.html with the red-gate-v1 template to <id>.pdf (and prove the math
+rendered and the Thai survived into the PDF's text), run gen.py for the 10 inputs, compile
 solution.cpp with the judge's flags and RUN it to produce every expected
 output (outputs are never written by hand), then write dist/<id>/ and
 rewrite dist/standard-problems.zip from everything in dist/.
@@ -97,23 +98,27 @@ def build_problem(problem_dir) -> dict:
     hh.reset_dir(meta.work_dir)
     hh.reset_dir(meta.dist_dir)
 
-    markdown = sp.assemble_statement_markdown(meta)
-    samples_in = sp.mdrender.extract_fenced(markdown, "sample-input")
-    samples_out = sp.mdrender.extract_fenced(markdown, "sample-output")
-    if not samples_in or len(samples_in) != len(samples_out):
-        raise HarnessError(f"{meta.id}: statement.md needs matching ```sample-input / ```sample-output pairs "
-                           f"(found {len(samples_in)} and {len(samples_out)})")
-    for number, (sample_in, sample_out) in enumerate(zip(samples_in, samples_out), start=1):
-        hh.write_text(meta.work_dir / f"sample{number}.in", sample_in.rstrip("\n") + "\n")
-        hh.write_text(meta.work_dir / f"sample{number}.out", sample_out.rstrip("\n") + "\n")
+    # Examples: the inputs are authored in samples/, the outputs are the reference's.
+    sample_workspace = meta.work_dir / "samples"
+    sp.compile_cpp(meta, meta.source_dir / "solution.cpp", sample_workspace)
+    samples: list[tuple[str, str]] = []
+    for sample_in in sp.sample_inputs(meta):
+        out = sample_workspace / f"{sample_in.stem}.out"
+        result = hh.run_program(sample_workspace, sp.BINARY_NAME, sample_in, 10_000, out,
+                                sample_workspace / f"{sample_in.stem}.err")
+        if result.exit_code != 0 or out.stat().st_size == 0:
+            raise HarnessError(f"{meta.id}: the reference fails on samples/{sample_in.name} (exit {result.exit_code})")
+        samples.append((sample_in.read_text(encoding="utf-8"), out.read_text(encoding="utf-8")))
+        hh.write_text(meta.work_dir / f"sample{sample_in.stem}.in", samples[-1][0])
+        hh.write_text(meta.work_dir / f"sample{sample_in.stem}.out", samples[-1][1])
 
     html_path = meta.work_dir / "statement.html"
-    hh.write_text(html_path, sp.statement_html(meta, markdown))
+    hh.write_text(html_path, sp.statement_html(meta, sp.assemble_statement(meta, samples)))
     pdf_path = meta.dist_dir / f"{meta.id}.pdf"
     sp.render_pdf(meta, html_path, pdf_path)
-    thai_probe, math_probe = sp.assert_statement_survived(meta, pdf_path, markdown)
+    thai_probe = sp.assert_statement_survived(meta, pdf_path)
     print(f"    statement.pdf  {hh.human_bytes(pdf_path.stat().st_size)}  "
-          f"(Thai \"{thai_probe}\" and math \"{math_probe}\" found in the PDF text)")
+          f"(red-gate-v1; math rendered; Thai \"{thai_probe}\" found in the PDF text)")
 
     generate_inputs(meta)
     measurements = build_outputs(meta)
@@ -153,6 +158,8 @@ def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description="Build standard problems into the batch-upload layout.")
     parser.add_argument("problems", nargs="*")
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--no-zip", action="store_true",
+                        help="skip rewriting dist/standard-problems.zip (for several builds running at once)")
     args = parser.parse_args(argv)
     try:
         hh.require_container()
@@ -160,7 +167,8 @@ def main(argv: list[str]) -> int:
         sp.WORK_DIR.mkdir(parents=True, exist_ok=True)
         for problem_dir in sp.resolve_problem_dirs([] if args.all else args.problems):
             build_problem(problem_dir)
-        write_zip()
+        if not args.no_zip:
+            write_zip()
     except HarnessError as error:
         print(f"\nBUILD FAILED: {error}", file=sys.stderr)
         return 1

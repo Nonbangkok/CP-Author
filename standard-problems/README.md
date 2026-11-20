@@ -12,10 +12,9 @@ cd standard-problems
 ```
 
 It runs in the same throwaway Docker image as `header-problems/`
-(`oj-content-build`: the judge's g++ 14, wkhtmltopdf, Thai fonts) and imports
-that harness's generic parts — the judge-faithful runner (`timeout -k 2s`,
-exit 124 = TLE), the output comparison, the PDF text probes and the math
-renderer — so both problem kinds are judged and rendered the same way.
+(`oj-content-build`: the judge's g++ 14 and wkhtmltopdf 0.12.6) and imports
+that harness's judge-faithful runner (`timeout -k 2s`, exit 124 = TLE) and
+output comparison, so both problem kinds are judged the same way.
 
 Import `dist/standard-problems.zip` in the OJ at **Manage › Problems → Batch
 upload**. Problems arrive hidden; publish them, then import the lessons bundle
@@ -28,7 +27,8 @@ that links them (the lessons dry run refuses ids the grader does not have).
 | file | |
 |---|---|
 | `meta.json` | title (English), author, categories, difficulty, collection, limits, `has_tle_subtask`, subtasks, `pdf_probe`, `lesson` (slug of the lesson that uses it) |
-| `statement.md` | house template, first line `# <title>` |
+| `statement.html` | Nonbangkok's red-gate-v1 format (below), first line `<h1><title></h1>` |
+| `samples/1.in`, `2.in`, … | the statement's examples; outputs come from solution.cpp |
 | `gen.py` | `python3 gen.py <dir>` writes `input01.txt` … `input10.txt`, **deterministic**, smallest first |
 | `solution.cpp` | reference — every expected output is produced by running it |
 | `slow.cpp` | naive version; required exactly when `has_tle_subtask` |
@@ -61,29 +61,60 @@ Ten cases always. The judge stops at the first failing case and scores the
 passed prefix, so subtasks are listed smallest first and each subtask's
 `percent` must equal its share of the cases (3 cases = 30%).
 
-## Statement template
+## Statement template — Nonbangkok's red-gate-v1
 
-Same house style as the header problems ("Red Gate"), minus the
-header-only sections:
+Statements use the author's own template, exactly as the original Red Gate
+statement is written (`task-pdf-writer/demo/red-gate/content.mjs`): **HTML with
+`$...$` / `$$...$$` LaTeX**, rendered by real KaTeX inside the red-gate-v1 page
+(`template/red-gate-v1/`, copied unchanged from the OJ's
+`backend/authoring/templates/red-gate-v1`) with the avatar header
+"Nonbangkok / Author : Kittitouch Thipmontha / <task code> / Thai (THA)", and
+printed by wkhtmltopdf with the original renderer's arguments. Sarabun and
+Inconsolata are registered as fonts for the render, like the original's
+Docker image, so the PDF carries real text.
 
-1. `# <title>` (checked against meta.json, then rendered from it), then one or
-   two narrative paragraphs.
-2. `## คำอธิบาย :` — the task.
-3. `## Input :` / `## Output :` — "บรรทัดแรก : …<br>" lines, variables as `$math$`.
-4. `## Examples :` with `### ตัวอย่างที่ 1` and a ```` ```sample-input ```` /
-   ```` ```sample-output ```` pair (more pairs allowed; every one is checked
-   against solution.cpp), then `## คำอธิบายตัวอย่างที่ 1`.
-5. `## Constraints :` — one `*` bullet per bound, as LaTeX.
-6. `{{subtasks}}`, `{{limits}}` (generated; the Python limits are printed
-   too), `{{> author}}` last.
+`statement.html`, in this order:
 
-Write bounds and complexities as LaTeX — the build extracts the rendered math
-back out of the PDF, like the Thai probe. `<b>…</b>` for emphasis.
+```html
+<h1>Count in Range</h1>                       <!-- must equal meta.json's title -->
+<p>…story / task, <b>bold</b> for the key facts, $N$ for math…</p>
+
+<h2>Input :</h2>
+<p class="input-spec">บรรทัดแรก : …<br>บรรทัดที่สอง : …</p>
+
+<h2>Output :</h2>
+<p>มีทั้งหมด $Q$ บรรทัด โดย<br>บรรทัดที่ $j$ …</p>
+
+{{examples}}                                  <!-- generated from samples/*.in -->
+
+<h2>คำอธิบายตัวอย่างที่ 1</h2>
+<p>…</p>
+
+<div class="forced-page-break"></div>        <!-- optional, where it helps the split -->
+
+<h2>Constraints :</h2>
+<ul><li>$1 \leq N \leq 10^5$</li></ul>
+
+{{subtasks}}                                  <!-- generated from meta.json -->
+
+{{limits}}                                    <!-- generated, Python limits included -->
+
+{{> author}}                                  <!-- template/author.html: Author : + Contacts : -->
+```
+
+* `{{examples}}` writes `<h2>Examples :</h2>` and one `ตัวอย่างที่ N` sample
+  table per `samples/N.in`, in the template's own markup; the **output column
+  is produced by running solution.cpp**, so a sample can never be wrong.
+* Classes from the template: `input-spec`, `geometry-data`, `sample-table`,
+  `forced-page-break`. No scripts, styles or event handlers.
+* KaTeX runs in strict mode: an unknown command or bad formula fails the
+  build with KaTeX's message, and a stray `$` left in the PDF fails it too.
+* Never put Thai inside math; write the words outside the `$...$`.
 
 ## Verification contract (`./run.sh verify`)
 
 1. `dist/<id>/` matches meta.json (config, PDF, 10 testcase pairs).
-2. `solution.cpp` prints every statement sample exactly.
+2. `solution.cpp` still prints every example (outputs were built from it).
 3. `solution.cpp` is Accepted on all 10 cases under the real time limit
    (the build also warns when it uses more than half of it).
 4. `solution.py`, when present, is Accepted under the judge's Python limit

@@ -10,8 +10,8 @@ it can earlier, with the same rules, so a PR fails before anyone uploads it:
   * strict JSON shapes, slugs, limits (mirror of OJ backend/constants/lessons.ts)
   * lesson directives (mirror of OJ backend/services/lessonMarkdown.ts)
   * every problem named by :::problem / :::solution is listed in the lesson's "problems"
-  * every listed problem exists: a header problem in ../header-problems/problems/,
-    or an id in known-problems.txt (problems that live only in the grader)
+  * every listed problem exists: a folder in ../header-problems/problems/ or
+    ../standard-problems/problems/, or an id in known-problems.txt
   * images: declared, png/jpg/jpeg/webp/gif, content matches the extension
   * no stray files
 
@@ -32,6 +32,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 DIST = HERE / "dist"
 HEADER_PROBLEMS = HERE.parent / "header-problems" / "problems"
+STANDARD_PROBLEMS = HERE.parent / "standard-problems" / "problems"
 KNOWN_PROBLEMS = HERE / "known-problems.txt"
 
 # -- mirrored from OJ backend/constants/lessons.ts -----------------------------
@@ -173,7 +174,10 @@ def sniff_image(data: bytes) -> str | None:
 
 
 def known_problem_ids() -> set[str]:
-    ids = {p.name for p in HEADER_PROBLEMS.iterdir() if (p / "meta.json").is_file()} if HEADER_PROBLEMS.is_dir() else set()
+    ids: set[str] = set()
+    for folder in (HEADER_PROBLEMS, STANDARD_PROBLEMS):
+        if folder.is_dir():
+            ids |= {p.name for p in folder.iterdir() if (p / "meta.json").is_file()}
     if KNOWN_PROBLEMS.is_file():
         for line in KNOWN_PROBLEMS.read_text(encoding="utf-8").splitlines():
             line = line.split("#", 1)[0].strip()
@@ -289,7 +293,7 @@ def build(check_only: bool) -> int:
                     fail(module_path, f"{where}a problem may appear once per lesson")
                 for pid in listed:
                     if pid not in problems:
-                        fail(module_path, f"{where}problem {pid!r} is neither a header problem nor in known-problems.txt")
+                        fail(module_path, f"{where}problem {pid!r} is not in header-problems/, standard-problems/ or known-problems.txt")
 
                 assets = lesson.get("assets", [])
                 if not isinstance(assets, list) or len(assets) > MAX_ASSETS or len(set(map(str, assets))) != len(assets):

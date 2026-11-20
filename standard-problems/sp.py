@@ -2,17 +2,17 @@
 
 Standard problems are the practice problems behind the Learn lessons
 (lessons/CURRICULUM.md). They reuse the header-problem toolchain where it is
-generic -- the same Docker image (g++ 14 like the judge, wkhtmltopdf, Thai
-fonts), the judge-faithful runner and output comparison in
-../header-problems/harness.py, and the server-side math renderer in
-../header-problems/mdrender.py -- and add what differs: a single-source C++
-reference, an optional Python reference, no grader/starter file sets, and a
-statement template without the header-only sections.
+generic -- the same Docker image (g++ 14 like the judge, wkhtmltopdf) and the
+judge-faithful runner and output comparison in ../header-problems/harness.py --
+and render statements with Nonbangkok's own red-gate-v1 template (the Red Gate
+layout, KaTeX, Sarabun), as the original task-pdf-writer renderer does.
 
 A problem lives in problems/<id>/:
 
     meta.json       limits, categories, difficulty, subtasks, Thai PDF probe
-    statement.md    the house template (see README.md), first line "# <title>"
+    statement.html  Nonbangkok's red-gate-v1 format (HTML + $LaTeX$, see README.md),
+                    first line "<h1><title></h1>"
+    samples/        1.in, 2.in, ...: the statement's examples (outputs come from solution.cpp)
     gen.py          writes input01.txt .. input10.txt into the directory it is given
     solution.cpp    reference; produces every expected output
     slow.cpp        naive version, required when has_tle_subtask (must TLE exactly
@@ -24,6 +24,7 @@ A problem lives in problems/<id>/:
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -35,12 +36,10 @@ HEADER_DIR = ROOT.parent / "header-problems"
 sys.path.insert(0, str(HEADER_DIR))
 
 import harness as hh  # noqa: E402  (the header harness: runner, comparison, PDF probes)
-import mdrender  # noqa: E402
 
 PROBLEMS_DIR = ROOT / "problems"
 DIST_DIR = ROOT / "dist"
 WORK_DIR = DIST_DIR / ".work"
-SHARED_STATEMENT_DIR = hh.STATEMENT_DIR  # style.css and the author partial are shared
 ZIP_NAME = "standard-problems.zip"
 
 HarnessError = hh.HarnessError
@@ -55,7 +54,6 @@ PYTHON_TIME_MULTIPLIER = 4
 PYTHON_MEMORY_MULTIPLIER = 2
 
 REQUIRED_SECTIONS = [
-    "คำอธิบาย :",
     "Input :",
     "Output :",
     "Examples :",
@@ -174,11 +172,11 @@ def load_meta(problem_dir: Path) -> Meta:
     _require(lesson is None or (isinstance(lesson, str) and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", lesson)),
              f"{pid}: lesson must be the slug of the lesson that uses the problem")
 
-    for required in ("statement.md", "gen.py", "solution.cpp"):
+    for required in ("statement.html", "gen.py", "solution.cpp"):
         _require((problem_dir / required).is_file(), f"{pid}: {required} is missing")
     _require((problem_dir / "slow.cpp").is_file() == has_tle,
              f"{pid}: slow.cpp must exist exactly when has_tle_subtask is true")
-    allowed = {"meta.json", "statement.md", "gen.py", "solution.cpp", "slow.cpp", "solution.py"}
+    allowed = {"meta.json", "statement.html", "samples", "gen.py", "solution.cpp", "slow.cpp", "solution.py"}
     extra = sorted(p.name for p in problem_dir.iterdir() if p.name not in allowed and p.name != "__pycache__")
     _require(not extra, f"{pid}: unexpected file(s) {', '.join(extra)}")
 
@@ -205,81 +203,188 @@ def resolve_problem_dirs(selectors: list[str]) -> list[Path]:
     return chosen
 
 
-# --- statement -------------------------------------------------------------
+# --- statement (Nonbangkok's red-gate-v1 template) ---------------------------
+#
+# Statements are written the way the original Red Gate statement is
+# (task-pdf-writer demo/red-gate/content.mjs): plain HTML with $...$ / $$...$$
+# LaTeX, rendered by real KaTeX inside the red-gate-v1 page shell
+# (template/red-gate-v1, copied unchanged from the OJ's
+# backend/authoring/templates/red-gate-v1) with the author header and avatar,
+# then printed by wkhtmltopdf with the same arguments as the original
+# renderer (demo/red-gate/dockerPdf.mjs). Generated parts -- the examples
+# (outputs produced by solution.cpp), subtasks, limits and author block --
+# come from placeholders so they can never drift from meta.json or the code.
+
+TEMPLATE_ROOT = ROOT / "template"
+TEMPLATE_DIR = TEMPLATE_ROOT / "red-gate-v1"
+AVATAR = TEMPLATE_ROOT / "avatar.png"
+RENDER_ERROR_MARKER = "PDF_RENDER_ERROR"
+REQUIRED_PLACEHOLDERS = ("{{examples}}", "{{subtasks}}", "{{limits}}", "{{> author}}")
+SAMPLE_PADDING = "&#x20;           "  # the template's trailing line inside each sample <pre>
 
 
-def limits_section(meta: Meta) -> str:
+def escape_html(value: str) -> str:
+    return (value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            .replace('"', "&quot;").replace("'", "&#039;"))
+
+
+def sample_inputs(meta: Meta) -> list[Path]:
+    folder = meta.source_dir / "samples"
+    inputs = sorted(folder.glob("*.in")) if folder.is_dir() else []
+    _require(inputs, f"{meta.id}: samples/ needs at least one <n>.in file")
+    names = [p.stem for p in inputs]
+    _require(names == [str(i) for i in range(1, len(inputs) + 1)], f"{meta.id}: samples must be named 1.in, 2.in, ...")
+    return inputs
+
+
+def examples_html(samples: list[tuple[str, str]]) -> str:
+    parts = ["<h2>Examples :</h2>"]
+    for number, (sample_in, sample_out) in enumerate(samples, start=1):
+        cells = []
+        for text in (sample_in, sample_out):
+            body = escape_html(text.rstrip("\n"))
+            cells.append(f"<td><pre>\n{body}\n{SAMPLE_PADDING}\n</pre></td>")
+        parts.append(f"<h3>ตัวอย่างที่ {number}</h3>\n<table class=\"sample-table\"><thead><tr><th>ข้อมูลนำเข้า</th>"
+                     f"<th>ข้อมูลส่งออก</th></tr></thead><tbody><tr>{''.join(cells)}</tr></tbody></table>")
+    return "\n\n".join(parts)
+
+
+def subtasks_html(meta: Meta) -> str:
+    items = "".join(f"<li>({s.percent} points) {s.note}</li>" for s in meta.subtasks)
+    return f"<h2>Subtasks :</h2>\n<ol>{items}</ol>"
+
+
+def limits_html(meta: Meta) -> str:
     def seconds(ms: int) -> str:
         value = f"{ms / 1000:g}"
         return f"{value} second" + ("" if value == "1" else "s")
 
-    return "\n".join([
-        "## Limits :",
-        "",
-        f"* Time limit: {seconds(meta.time_limit_ms)} (Python: {seconds(meta.time_limit_ms * PYTHON_TIME_MULTIPLIER)})",
-        f"* Memory limit: {meta.memory_limit_mb} MB (Python: {meta.memory_limit_mb * PYTHON_MEMORY_MULTIPLIER} MB)",
-    ])
+    return ("<h2>Limits :</h2>\n<ul>"
+            f"<li>Time limit: {seconds(meta.time_limit_ms)} (Python: {seconds(meta.time_limit_ms * PYTHON_TIME_MULTIPLIER)})</li>"
+            f"<li>Memory limit: {meta.memory_limit_mb} MB (Python: {meta.memory_limit_mb * PYTHON_MEMORY_MULTIPLIER} MB)</li></ul>")
 
 
-def assemble_statement_markdown(meta: Meta) -> str:
-    text = (meta.source_dir / "statement.md").read_text(encoding="utf-8")
-    text = hh._split_title(meta, text)  # checks "# <title>" against meta.json, then drops it
-    _require("{{> author}}" in text, f"{meta.id}: statement.md must end with the shared partial {{{{> author}}}}")
-    text = text.replace("{{> author}}", (SHARED_STATEMENT_DIR / "author.md").read_text(encoding="utf-8").strip())
-    for placeholder, section in (("{{subtasks}}", hh.subtask_section(meta)), ("{{limits}}", limits_section(meta))):
-        _require(placeholder in text, f"{meta.id}: statement.md must place the generated section with {placeholder}")
-        text = text.replace(placeholder, section)
-    text = text.replace("{{id}}", meta.id).replace("{{title}}", meta.title)
+def assemble_statement(meta: Meta, samples: list[tuple[str, str]]) -> str:
+    """statement.html with the generated parts filled in."""
+    path = meta.source_dir / "statement.html"
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    first = text.lstrip().split("\n", 1)[0].strip()
+    _require(first == f"<h1>{escape_html(meta.title)}</h1>",
+             f"{meta.id}: statement.html must start with <h1>{meta.title}</h1> (the title in meta.json)")
+    for placeholder in REQUIRED_PLACEHOLDERS:
+        _require(text.count(placeholder) == 1, f"{meta.id}: statement.html must contain {placeholder} exactly once")
+    text = (text.replace("{{examples}}", examples_html(samples))
+                .replace("{{subtasks}}", subtasks_html(meta))
+                .replace("{{limits}}", limits_html(meta))
+                .replace("{{> author}}", (TEMPLATE_ROOT / "author.html").read_text(encoding="utf-8").strip()))
     scan = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
-    _require("{{" not in scan and "}}" not in scan, f"{meta.id}: statement.md still contains an unexpanded placeholder")
-    headings = {line[3:].strip() for line in scan.splitlines() if line.startswith("## ")}
+    _require("{{" not in scan and "}}" not in scan, f"{meta.id}: statement.html still contains an unexpanded placeholder")
+    _require(not re.search(r"<script|<style|\son[a-z]+\s*=|javascript:", scan, flags=re.IGNORECASE),
+             f"{meta.id}: statement.html may not contain scripts, styles or event handlers")
+    headings = {re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<h2>(.*?)</h2>", scan, flags=re.DOTALL)}
     missing = [section for section in REQUIRED_SECTIONS if section not in headings]
-    _require(not missing, f"{meta.id}: statement.md is missing the section(s): {', '.join(missing)}")
+    _require(not missing, f"{meta.id}: statement.html is missing the section(s): {', '.join(missing)}")
     return text
 
 
-def statement_html(meta: Meta, markdown: str) -> str:
-    style = (SHARED_STATEMENT_DIR / "style.css").read_text(encoding="utf-8")
-    difficulty = "ไม่จัดระดับ" if meta.difficulty is None else str(meta.difficulty)
-    try:
-        body = mdrender.render_markdown(markdown)
-    except mdrender.MathError as error:
-        raise HarnessError(f"{meta.id}: statement math does not render: {error}") from error
-    return (
-        "<!DOCTYPE html>\n<html lang=\"th\">\n<head>\n<meta charset=\"utf-8\">\n"
-        f"<title>{meta.id}</title>\n<style>\n{style}\n</style>\n</head>\n<body>\n"
-        f"<h1>{meta.title}</h1>\n"
-        f"<p class=\"meta\"><span>รหัสข้อ: <code>{meta.id}</code></span>"
-        f"<span>ภาษา: C++, Python</span><span>ระดับความยาก: {difficulty}</span></p>\n"
-        f"{body}\n</body>\n</html>\n"
-    )
+def _file_url(path: Path) -> str:
+    return "file://" + str(path.resolve()).replace(" ", "%20")
+
+
+def statement_html(meta: Meta, body: str) -> str:
+    """The red-gate-v1 page, as the OJ's backend/authoring/pdfTemplate.ts builds it."""
+    document = json.loads((TEMPLATE_ROOT / "document.json").read_text(encoding="utf-8"))
+    base = _file_url(TEMPLATE_DIR)
+    css = (TEMPLATE_DIR / "layout.css").read_text(encoding="utf-8")
+
+    def font(name: str, file: str, weight: int) -> str:
+        return (f"@font-face{{font-family:'{name}';src:local('{name}'),url('{base}/fonts/{file}') format('truetype');"
+                f"font-weight:{weight};font-style:normal;font-display:block;}}")
+
+    return f"""<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><title>{escape_html(meta.title)}</title>
+<link rel="stylesheet" href="{base}/vendor/katex.css"><style>
+{font('Sarabun', 'Sarabun-Regular.ttf', 400)}
+{font('Sarabun', 'Sarabun-Medium.ttf', 500)}
+{font('Sarabun', 'Sarabun-Bold.ttf', 700)}
+@font-face{{font-family:'RedGatePreviewInconsolata';src:url('{base}/fonts/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:block}}
+{css}
+</style></head><body><main class="document">
+<header class="document-header"><div class="header-logo"><img src="{_file_url(AVATAR)}" alt=""></div>
+<div class="header-title"><div><span class="aka-name">{escape_html(document['akaName'])}</span><br><span class="author-name">Author : {escape_html(document['realName'])}</span></div></div>
+<div class="header-meta"><div>{escape_html(meta.id)}</div><div>{escape_html(document['language'])} ({escape_html(document['countryCode'])})</div></div><div style="clear:both"></div><hr></header>
+<article id="statement" class="statement">{body}</article></main>
+<script src="{base}/vendor/bundle.js"></script><script>
+function failPdfRender(error) {{
+  var marker = document.createElement('p');
+  marker.textContent = '{RENDER_ERROR_MARKER}: ' + String(error);
+  document.getElementById('statement').appendChild(marker);
+}}
+window.onerror = function (message) {{ failPdfRender(message); return true; }};
+try {{
+  var renderMathInElement=require('katex/dist/contrib/auto-render');
+  renderMathInElement(document.getElementById('statement'),{{
+    delimiters:[{{left:'$$',right:'$$',display:true}},{{left:'\\\\[',right:'\\\\]',display:true}},{{left:'$',right:'$',display:false}},{{left:'\\\\(',right:'\\\\)',display:false}}],
+    trust:false,strict:'error',throwOnError:true,maxExpand:1000,maxSize:100,
+    errorCallback:function (message,error) {{ throw error || new Error(message); }}
+  }});
+}} catch (error) {{ failPdfRender(error); }}
+window.setTimeout(function () {{ window.status='ready-to-print'; }}, 1500);
+</script></body></html>
+"""
 
 
 def render_pdf(meta: Meta, html_path: Path, pdf_path: Path) -> None:
+    """wkhtmltopdf with the original renderer's arguments (demo/red-gate/dockerPdf.mjs)."""
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    # The original renderer installs Sarabun and Inconsolata as system fonts
+    # (demo/red-gate/Dockerfile), so the template's local('Sarabun') resolves to
+    # a real font and the PDF carries extractable text. Do the same without
+    # changing the image: a fontconfig file that adds the template's fonts/.
+    fonts_conf = meta.work_dir / "fonts.conf"
+    hh.write_text(fonts_conf, (
+        '<?xml version="1.0"?>\n<!DOCTYPE fontconfig SYSTEM "fonts.dtd">\n<fontconfig>\n'
+        '  <include ignore_missing="yes">/etc/fonts/fonts.conf</include>\n'
+        f'  <dir>{TEMPLATE_DIR / "fonts"}</dir>\n'
+        f'  <cachedir>{meta.work_dir / "fontconfig-cache"}</cachedir>\n'
+        '</fontconfig>\n'
+    ))
+    env = {**os.environ, "FONTCONFIG_FILE": str(fonts_conf)}
     command = [
-        "wkhtmltopdf", "--encoding", "UTF-8", "--page-size", "A4", "--print-media-type",
-        "--margin-top", "18mm", "--margin-bottom", "18mm", "--margin-left", "16mm", "--margin-right", "16mm",
-        "--footer-right", "[page]/[topage]", "--footer-font-size", "8",
-        "--disable-local-file-access", "--load-error-handling", "abort", "--quiet",
+        "wkhtmltopdf", "--enable-local-file-access", "--page-size", "A4",
+        "--margin-left", "0.75in", "--margin-right", "0.75in", "--margin-top", "0.62in", "--margin-bottom", "1in",
+        "--print-media-type", "--window-status", "ready-to-print", "--encoding", "UTF-8", "--quiet",
         str(html_path), str(pdf_path),
     ]
-    completed = subprocess.run(command, capture_output=True, text=True, check=False)
+    try:
+        completed = subprocess.run(command, capture_output=True, text=True, check=False, timeout=90, env=env)
+    except subprocess.TimeoutExpired as error:
+        raise HarnessError(f"{meta.id}: wkhtmltopdf did not finish within 90 s") from error
     if completed.returncode != 0 or not pdf_path.is_file() or pdf_path.read_bytes()[:4] != b"%PDF":
         raise HarnessError(f"{meta.id}: wkhtmltopdf failed (exit {completed.returncode}): "
                            f"{(completed.stderr or completed.stdout).strip()[:800]}")
 
 
-def assert_statement_survived(meta: Meta, pdf_path: Path, markdown: str) -> tuple[str, str]:
-    """The Thai and the math must come back out of the finished PDF."""
-    extracted = hh.extract_pdf_text(meta, pdf_path, meta.work_dir)
+def assert_statement_survived(meta: Meta, pdf_path: Path) -> str:
+    """Read the PDF's text back: math rendered, Thai present, every section there."""
+    # -raw keeps the content-stream order: with KaTeX boxes between the words,
+    # the default layout mode reorders Thai text across lines.
+    text_path = meta.work_dir / "statement.txt"
+    completed = subprocess.run(["pdftotext", "-raw", "-enc", "UTF-8", str(pdf_path), str(text_path)],
+                               capture_output=True, text=True, check=False)
+    _require(completed.returncode == 0 and text_path.is_file(), f"{meta.id}: pdftotext failed: {completed.stderr[:300]}")
+    extracted = text_path.read_text(encoding="utf-8", errors="replace")
+    marker = extracted.find(RENDER_ERROR_MARKER)
+    _require(marker < 0, f"{meta.id}: KaTeX could not render the statement: {extracted[marker:marker + 300].strip()}")
+    _require("$" not in extracted, f"{meta.id}: the PDF still shows a literal $ — some math was not rendered "
+             "(unbalanced $ or math inside an element KaTeX skips)")
     haystack = hh.thai_comparison_key(extracted)
     base = sum(1 for ch in extracted if hh.THAI_BASE_RANGE[0] <= ord(ch) < hh.THAI_BASE_RANGE[1])
     _require(base >= 150, f"{meta.id}: only {base} Thai characters came back out of the PDF (missing Thai font?)")
-    for probe in [meta.pdf_probe, *REQUIRED_SECTIONS]:
+    for probe in [meta.pdf_probe, *REQUIRED_SECTIONS, meta.title]:
         _require(hh.thai_comparison_key(probe) in haystack,
                  f"{meta.id}: \"{probe}\" is NOT in the rendered PDF (missing glyphs or section)")
-    return meta.pdf_probe, hh.assert_math_survived(meta, extracted, markdown)
+    return meta.pdf_probe
 
 
 # --- compile & run ---------------------------------------------------------

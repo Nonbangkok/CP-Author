@@ -7,7 +7,7 @@
 Every problem must satisfy:
 
   1. dist/<id>/ matches meta.json (config.json, the PDF, 10 testcase pairs).
-  2. solution.cpp prints every statement sample exactly.
+  2. solution.cpp still prints every statement example (built from samples/).
   3. solution.cpp is Accepted on all 10 cases under the REAL time limit.
   4. solution.py, when present, is Accepted on all 10 cases under the judge's
      Python limit (time x4).
