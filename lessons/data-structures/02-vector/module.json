@@ -1,0 +1,33 @@
+{
+  "slug": "vector",
+  "title": "Vector",
+  "summary": "อาเรย์ที่โตเองได้: mData, mSize, mCap และราคาของการเลื่อนข้อมูล",
+  "lessons": [
+    {
+      "slug": "dynamic-array",
+      "title": "Dynamic Array",
+      "summary": "ทำไม push_back ถึงเร็ว ทั้งที่บางครั้งต้องย้ายข้อมูลทั้งก้อน",
+      "minutes": 10,
+      "file": "dynamic-array.md",
+      "problems": [
+        { "id": "hp_vec01_fill", "role": "example" },
+        { "id": "hp_vec02_at", "role": "practice" },
+        { "id": "hp_vec03_pop_front", "role": "practice" }
+      ]
+    },
+    {
+      "slug": "shifting-elements",
+      "title": "Insert & Erase by Shifting",
+      "summary": "เลื่อนข้อมูลให้ถูกทิศ และลบหลายตัวในรอบเดียว",
+      "minutes": 15,
+      "file": "shifting-elements.md",
+      "problems": [
+        { "id": "hp_vec04_erase", "role": "example" },
+        { "id": "hp_vec05_insert", "role": "practice" },
+        { "id": "hp_vec06_erase_many", "role": "practice" },
+        { "id": "hp_vec09_compress", "role": "challenge" },
+        { "id": "hp_vec10_rotate", "role": "challenge" }
+      ]
+    }
+  ]
+}

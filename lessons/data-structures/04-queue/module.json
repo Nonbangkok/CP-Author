@@ -1,0 +1,21 @@
+{
+  "slug": "queue",
+  "title": "Queue",
+  "summary": "คิวแบบวงกลม (ring buffer) ที่ pop ได้ทันทีโดยไม่ต้องเลื่อนข้อมูล",
+  "lessons": [
+    {
+      "slug": "ring-buffer",
+      "title": "Queue as a Ring Buffer",
+      "summary": "mFront กับ modulo และกับดัก size_t ตอนถอยหลัง",
+      "minutes": 14,
+      "file": "ring-buffer.md",
+      "problems": [
+        { "id": "hp_que01_at", "role": "example" },
+        { "id": "hp_que02_back", "role": "practice" },
+        { "id": "hp_que03_push_front", "role": "practice" },
+        { "id": "hp_que04_pop_back", "role": "practice" },
+        { "id": "hp_que09_reverse", "role": "challenge" }
+      ]
+    }
+  ]
+}

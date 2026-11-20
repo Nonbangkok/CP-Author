@@ -1,0 +1,21 @@
+{
+  "slug": "pair",
+  "title": "Pair",
+  "summary": "เริ่มจากคลาสที่เล็กที่สุด แล้วเรียนวิธีเขียน member function กับ operator ใน student.h",
+  "lessons": [
+    {
+      "slug": "operator-overloading",
+      "title": "Pair & Operator Overloading",
+      "summary": "เขียน ==, < และเพื่อน ๆ ให้ CP::pair โดยไม่ขัดกันเอง",
+      "minutes": 12,
+      "file": "operator-overloading.md",
+      "problems": [
+        { "id": "hp_pair01_equal", "role": "example" },
+        { "id": "hp_pair02_less", "role": "practice" },
+        { "id": "hp_pair05_add", "role": "practice" },
+        { "id": "hp_pair09_accumulate", "role": "practice" },
+        { "id": "hp_pair10_ordering", "role": "challenge" }
+      ]
+    }
+  ]
+}

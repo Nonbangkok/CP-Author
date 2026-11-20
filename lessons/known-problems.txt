@@ -1,0 +1,2 @@
+# Problems that exist in the grader but are not header problems, one id per line.
+# Lessons may list them in "problems"; build.py accepts them without a source folder.
