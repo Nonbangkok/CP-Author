@@ -1,0 +1,33 @@
+{
+  "slug": "heap",
+  "title": "Priority Queue (Binary Heap)",
+  "summary": "ต้นไม้ที่ซ่อนอยู่ในอาเรย์ กับ fixUp และ fixDown",
+  "lessons": [
+    {
+      "slug": "binary-heap",
+      "title": "Binary Heap Basics",
+      "summary": "ดัชนีพ่อ-ลูก, mLess และทำไม push กับ pop ถึงเป็น O(log n)",
+      "minutes": 15,
+      "file": "binary-heap.md",
+      "problems": [
+        { "id": "hp_pq01_min", "role": "example" },
+        { "id": "hp_pq02_is_heap", "role": "practice" },
+        { "id": "hp_pq03_second", "role": "practice" },
+        { "id": "hp_pq04_third", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "heap-operations",
+      "title": "Updating and Merging Heaps",
+      "summary": "แก้ค่ากลางฮีป, ลบตามค่า, รวมสองฮีปใน O(n + m) และหาตัวที่ k",
+      "minutes": 16,
+      "file": "heap-operations.md",
+      "problems": [
+        { "id": "hp_pq07_update", "role": "practice" },
+        { "id": "hp_pq08_erase", "role": "practice" },
+        { "id": "hp_pq09_merge", "role": "challenge" },
+        { "id": "hp_pq10_kth", "role": "challenge" }
+      ]
+    }
+  ]
+}

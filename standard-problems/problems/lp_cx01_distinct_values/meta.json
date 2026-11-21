@@ -1,0 +1,18 @@
+{
+  "id": "lp_cx01_distinct_values",
+  "title": "Distinct Values",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "complexity",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 10{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 100{,}000$ (ต้องเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "สติกเกอร์ที่ไม่ซ้ำกันเลย"
+}

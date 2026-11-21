@@ -1,0 +1,6 @@
+{
+  "slug": "data-structures",
+  "title": "Data Structures (CP::)",
+  "description": "สร้างโครงสร้างข้อมูลแบบ CP:: ด้วยมือตัวเอง ตั้งแต่ pair, vector, stack, queue ไปจนถึง heap แล้วฝึกกับ header problem ของจริง",
+  "modules": ["01-pair", "02-vector", "03-stack", "04-queue", "05-heap"]
+}

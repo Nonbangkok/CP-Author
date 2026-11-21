@@ -1,0 +1,31 @@
+{
+  "slug": "techniques",
+  "title": "Two Pointers & Sliding Window",
+  "summary": "ลดลูปซ้อน O(N^2) ให้เหลือ O(N) ด้วยตัวชี้สองตัวที่เดินไปทางเดียวไม่ถอยหลัง",
+  "lessons": [
+    {
+      "slug": "two-pointers",
+      "title": "Two Pointers",
+      "summary": "สองฝั่งเดินเข้าหากัน, slow/fast เดินทางเดียวกัน, รวมสองอาเรย์ที่เรียงแล้ว และทำไมรวมแล้วขยับแค่ O(N) ครั้ง",
+      "minutes": 18,
+      "file": "two-pointers.md",
+      "problems": [
+        { "id": "lp_tp01_swan_boats", "role": "example" },
+        { "id": "lp_tp02_closest_sum", "role": "practice" },
+        { "id": "lp_tp03_budget_streaks", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "sliding-window",
+      "title": "Sliding Window",
+      "summary": "หน้าต่างขนาดคงที่ (เติมตัวใหม่ ทิ้งตัวเก่า), หน้าต่างยืดหดได้ และการนับค่าที่ไม่ซ้ำในหน้าต่าง",
+      "minutes": 17,
+      "file": "sliding-window.md",
+      "problems": [
+        { "id": "lp_sw01_best_window", "role": "example" },
+        { "id": "lp_sw02_shortest_segment", "role": "practice" },
+        { "id": "lp_sw03_k_flavors", "role": "challenge" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "getting-started",
+  "title": "Getting Started",
+  "summary": "เขียน C++ ให้อ่านไว เลือกชนิดข้อมูลถูก พิมพ์ผลตรงรูปแบบ แล้วประเมินเวลาก่อนลงมือเขียน",
+  "lessons": [
+    {
+      "slug": "cpp-for-cp",
+      "title": "C++ for Competitive Programming",
+      "summary": "fast I/O, อ่านจนจบไฟล์, int หรือ long long, และพิมพ์ทศนิยมให้ตรงรูปแบบ",
+      "minutes": 16,
+      "file": "cpp-for-cp.md",
+      "problems": [
+        { "id": "lp_gs01_piggy_bank", "role": "example" },
+        { "id": "lp_gs02_report_card", "role": "practice" },
+        { "id": "lp_gs03_mod_product", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "complexity",
+      "title": "Time & Space Complexity",
+      "summary": "Big O, การนับจำนวนการทำงาน, อ่าน constraints แล้วเลือกอัลกอริทึม และประเมินหน่วยความจำ",
+      "minutes": 18,
+      "file": "complexity.md",
+      "problems": [
+        { "id": "lp_cx01_distinct_values", "role": "example" },
+        { "id": "lp_cx02_range_sums", "role": "practice" }
+      ]
+    }
+  ]
+}

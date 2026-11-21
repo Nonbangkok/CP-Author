@@ -1,0 +1,19 @@
+{
+  "slug": "recursion",
+  "title": "Recursion",
+  "summary": "ฟังก์ชันที่เรียกตัวเอง: base case, call stack และการไล่ทุกทางเลือกด้วย backtracking",
+  "lessons": [
+    {
+      "slug": "recursion",
+      "title": "Thinking Recursively",
+      "summary": "แบ่งงานเป็นงานเดิมที่เล็กลง แล้วใช้มันสร้างทุก subset ทุก permutation และย้ายหอคอยฮานอย",
+      "minutes": 18,
+      "file": "recursion.md",
+      "problems": [
+        { "id": "lp_rec01_subset_sum", "role": "example" },
+        { "id": "lp_rec02_permutations", "role": "practice" },
+        { "id": "lp_rec03_hanoi_kth", "role": "challenge" }
+      ]
+    }
+  ]
+}

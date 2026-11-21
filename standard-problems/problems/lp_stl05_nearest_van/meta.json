@@ -1,0 +1,18 @@
+{
+  "id": "lp_stl05_nearest_van",
+  "title": "Nearest Van",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures", "Binary Search"],
+  "difficulty": 1200,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-set-map-pq",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$Q \\leq 100{,}000$ (แต่ละเหตุการณ์ต้องเร็วกว่า $O(Q)$)" }
+  ],
+  "pdf_probe": "ถ้ามีสองคันที่ห่างเท่ากัน"
+}

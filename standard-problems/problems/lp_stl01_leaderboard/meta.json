@@ -1,0 +1,17 @@
+{
+  "id": "lp_stl01_leaderboard",
+  "title": "Leaderboard",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 900,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-containers-sorting",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 4, "percent": 40, "note": "$N \\leq 1{,}000$" },
+    { "cases": 6, "percent": 60, "note": "$N \\leq 30{,}000$ (ต้องเรียงเร็วกว่า $O(N^2)$)" }
+  ],
+  "pdf_probe": "เรียงตามคะแนนจากมากไปน้อย"
+}

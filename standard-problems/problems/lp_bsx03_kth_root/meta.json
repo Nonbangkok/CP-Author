@@ -1,0 +1,18 @@
+{
+  "id": "lp_bsx03_kth_root",
+  "title": "K-th Root",
+  "author": "Nonbangkok",
+  "categories": ["Binary Search", "Math"],
+  "difficulty": 1500,
+  "collection": "Learn — Foundations",
+  "lesson": "binary-search-answer",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$n \\leq 10^6$" },
+    { "cases": 2, "percent": 20, "note": "$Q \\leq 10$, $n \\leq 10^{12}$" },
+    { "cases": 5, "percent": 50, "note": "$Q \\leq 10^4$, $n \\leq 10^{18}$ (ไล่ลองคำตอบทีละค่าไม่ทัน)" }
+  ],
+  "pdf_probe": "จำนวนเต็มบวกที่มากที่สุด"
+}

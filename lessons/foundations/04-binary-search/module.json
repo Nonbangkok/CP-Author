@@ -1,0 +1,31 @@
+{
+  "slug": "binary-search",
+  "title": "Binary Search",
+  "summary": "ตัดครึ่งช่วงค้นหาทุกรอบ: ค้นในอาเรย์ที่เรียงแล้ว และค้นหาคำตอบที่ดีที่สุดด้วยฟังก์ชันตรวจ",
+  "lessons": [
+    {
+      "slug": "binary-search-array",
+      "title": "Binary Search on an Array",
+      "summary": "lower_bound, upper_bound และวิธีเขียน binary search เองโดยไม่พลาด off-by-one",
+      "minutes": 16,
+      "file": "binary-search-array.md",
+      "problems": [
+        { "id": "lp_bsa01_count_range", "role": "example" },
+        { "id": "lp_bsa02_nearest_value", "role": "practice" },
+        { "id": "lp_bsa03_pair_budget", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "binary-search-answer",
+      "title": "Binary Search on the Answer",
+      "summary": "เปลี่ยนโจทย์หาค่าที่ดีที่สุดให้เป็นคำถามใช่หรือไม่ แล้วตัดครึ่งที่คำตอบ",
+      "minutes": 18,
+      "file": "binary-search-answer.md",
+      "problems": [
+        { "id": "lp_bsx01_booth_spacing", "role": "example" },
+        { "id": "lp_bsx02_split_work", "role": "practice" },
+        { "id": "lp_bsx03_kth_root", "role": "challenge" }
+      ]
+    }
+  ]
+}

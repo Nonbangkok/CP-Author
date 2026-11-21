@@ -1,0 +1,18 @@
+{
+  "id": "lp_stl06_top_k_sum",
+  "title": "Top K Prize",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures", "Greedy"],
+  "difficulty": 1400,
+  "collection": "Learn — Foundations",
+  "lesson": "stl-set-map-pq",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 100{,}000$ และ $K \\leq 20$" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 100{,}000$ (ไม่มีเงื่อนไขเพิ่มเติม)" }
+  ],
+  "pdf_probe": "ผลรวมของคะแนนสูงสุด"
+}

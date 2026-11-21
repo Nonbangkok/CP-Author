@@ -1,0 +1,17 @@
+{
+  "id": "lp_rec01_subset_sum",
+  "title": "Exact Change",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 900,
+  "collection": "Learn — Foundations",
+  "lesson": "recursion",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": false,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 10$" },
+    { "cases": 7, "percent": 70, "note": "$N \\leq 20$" }
+  ],
+  "pdf_probe": "นับจำนวนวิธีเลือกเหรียญ"
+}

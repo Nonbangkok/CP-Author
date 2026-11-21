@@ -1,0 +1,21 @@
+{
+  "slug": "stack",
+  "title": "Stack",
+  "summary": "สแตกบนอาเรย์ ที่ top อยู่ท้ายสุดเสมอ",
+  "lessons": [
+    {
+      "slug": "array-stack",
+      "title": "Stack on an Array",
+      "summary": "นับจาก top ให้ถูก และเก็บข้อมูลเสริมไว้ตอบเร็ว ๆ",
+      "minutes": 12,
+      "file": "array-stack.md",
+      "problems": [
+        { "id": "hp_stk01_top", "role": "example" },
+        { "id": "hp_stk03_at", "role": "practice" },
+        { "id": "hp_stk04_pop_many", "role": "practice" },
+        { "id": "hp_stk06_deep_push", "role": "practice" },
+        { "id": "hp_stk08_min", "role": "challenge" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "lp_bexp01_power_mod",
+  "title": "Power Mod",
+  "author": "Nonbangkok",
+  "categories": ["Math", "Divide and Conquer"],
+  "difficulty": 1000,
+  "collection": "Learn — Foundations",
+  "lesson": "binary-exponentiation",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$Q \\leq 100$ และ $b \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$Q \\leq 1{,}000$ และ $b \\leq 10^4$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม ($b$ ใหญ่ได้ถึง $10^{18}$ จึงคูณทีละรอบไม่ทัน)" }
+  ],
+  "pdf_probe": "ระบบล็อกของห้องเก็บสมบัติ"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "lp_cx02_range_sums",
+  "title": "Range Sums",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 1100,
+  "collection": "Learn — Foundations",
+  "lesson": "complexity",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 40{,}000$ (ต้องตอบแต่ละคำถามเร็วกว่า $O(N)$)" }
+  ],
+  "pdf_probe": "ยอดขายรวมตั้งแต่วันที่"
+}

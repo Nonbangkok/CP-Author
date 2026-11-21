@@ -1,0 +1,31 @@
+{
+  "slug": "stl",
+  "title": "STL",
+  "summary": "เครื่องมือมาตรฐานของ C++ ที่ใช้แทบทุกข้อ: vector, sort, set, map, priority_queue และ deque",
+  "lessons": [
+    {
+      "slug": "stl-containers-sorting",
+      "title": "Containers & Sorting",
+      "summary": "vector, pair, sort กับ comparator ที่ถูกต้อง, unique และ lower_bound",
+      "minutes": 16,
+      "file": "containers-sorting.md",
+      "problems": [
+        { "id": "lp_stl01_leaderboard", "role": "example" },
+        { "id": "lp_stl02_compress", "role": "practice" },
+        { "id": "lp_stl03_merge_intervals", "role": "challenge" }
+      ]
+    },
+    {
+      "slug": "stl-set-map-pq",
+      "title": "set, map, priority_queue, deque",
+      "summary": "container ที่แก้ไขได้เร็วและยังถามได้เร็ว: เลือกให้ถูกงาน แล้วไม่ต้อง TLE",
+      "minutes": 18,
+      "file": "set-map-pq.md",
+      "problems": [
+        { "id": "lp_stl04_seen_before", "role": "example" },
+        { "id": "lp_stl05_nearest_van", "role": "practice" },
+        { "id": "lp_stl06_top_k_sum", "role": "challenge" }
+      ]
+    }
+  ]
+}

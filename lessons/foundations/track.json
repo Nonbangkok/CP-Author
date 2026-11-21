@@ -1,0 +1,6 @@
+{
+  "slug": "foundations",
+  "title": "Foundations",
+  "description": "พื้นฐานที่ต้องมีก่อนไปต่อ: เขียน C++ ให้ไวและถูก ใช้ STL เป็น ประเมินเวลา แล้วเก็บเทคนิคพื้นฐานอย่าง binary search, two pointers และ bitmask",
+  "modules": ["01-getting-started", "02-stl", "03-recursion", "04-binary-search", "05-techniques", "06-math-tools"]
+}
