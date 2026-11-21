@@ -1,0 +1,18 @@
+{
+  "id": "lp_ss02_blocked_queens",
+  "title": "Queens on a Broken Floor",
+  "author": "Nonbangkok",
+  "categories": [],
+  "difficulty": 1500,
+  "collection": "Learn — Intermediate",
+  "lesson": "state-space-search",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 2, "percent": 20, "note": "$N \\leq 6$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 9$" },
+    { "cases": 5, "percent": 50, "note": "$N \\leq 12$ (ไล่ทุก permutation แล้วค่อยตรวจไม่ทัน)" }
+  ],
+  "pdf_probe": "ช่องที่กระเบื้องแตก"
+}

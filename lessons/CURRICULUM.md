@@ -77,7 +77,12 @@ Total: 29 lessons, about 82 new problems.
    31 problems `lp_*` (all verified in one serial run; slow.cpp margins 3.1x–>30x),
    problems ZIP + lessons bundle accepted by the OJ importers on a scratch
    database. Waiting for the owner's review and the production import.
-3. **Batch 2 — Intermediate** (13 lessons, ~38 problems).
+3. **Batch 2 — Intermediate** (13 lessons, ~38 problems). **Written (2026-11-20):** 13 lessons in
+   `lessons/intermediate/` (Shortest Paths became its own module next to Graphs), 38 problems
+   `lp_*` (gr, dc, ss, str, dp, dpk, gph, ff, sp, tr, lca, mono, swp). All 69 problems verified in
+   one serial run (references <= 31% of the limit, slow.cpp >= 3.1x over it); the 69-problem ZIP
+   (239 MiB uncompressed) and the 31-lesson bundle import cleanly with the OJ's importers.
+   Reading times calibrated to ~1,125 bytes per minute (18–28 min).
 4. **Batch 3 — Advanced** (5 lessons, ~13 problems).
 
 Each batch: problems built and verified → imported into the grader (hidden,

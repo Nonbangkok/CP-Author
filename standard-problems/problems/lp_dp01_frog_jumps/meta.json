@@ -1,0 +1,17 @@
+{
+  "id": "lp_dp01_frog_jumps",
+  "title": "Frog Jumps",
+  "author": "Nonbangkok",
+  "categories": ["Dynamic Programming"],
+  "difficulty": 1200,
+  "collection": "Learn — Intermediate",
+  "lesson": "dp-basics",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 20$" },
+    { "cases": 7, "percent": 70, "note": "$N \\leq 2 \\times 10^4$ (ลองทุกเส้นทางไม่ทัน)" }
+  ],
+  "pdf_probe": "ค่าเหนื่อยรวมที่น้อยที่สุด"
+}

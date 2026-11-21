@@ -1,0 +1,18 @@
+{
+  "id": "lp_sp03_free_tickets",
+  "title": "Free Tickets",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1900,
+  "collection": "Learn — Intermediate",
+  "lesson": "shortest-paths",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 2, "percent": 20, "note": "$K = 0$, $N \\leq 1{,}000$, $M \\leq 3{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 500$, $M \\leq 2{,}000$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม" }
+  ],
+  "pdf_probe": "ตั๋วฟรีหนึ่งใบใช้ได้กับการนั่งรถหนึ่งเที่ยว"
+}

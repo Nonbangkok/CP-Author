@@ -1,0 +1,18 @@
+{
+  "id": "lp_ss01_three_buttons",
+  "title": "Three-Button Calculator",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1300,
+  "collection": "Learn — Intermediate",
+  "lesson": "state-space-search",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$L \\leq 100$ และคำตอบไม่เกิน $10$" },
+    { "cases": 2, "percent": 20, "note": "คำตอบไม่เกิน $12$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม (คำตอบอาจเกิน $20$)" }
+  ],
+  "pdf_probe": "จำนวนครั้งที่กดปุ่มน้อยที่สุด"
+}

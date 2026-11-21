@@ -1,0 +1,18 @@
+{
+  "id": "lp_tr02_longest_trail",
+  "title": "Longest Trail",
+  "author": "Nonbangkok",
+  "categories": ["Tree"],
+  "difficulty": 1500,
+  "collection": "Learn — Intermediate",
+  "lesson": "tree-basics",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 2{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N \\leq 10^5$ (หาระยะจากทุกกระท่อมไม่ทัน)" }
+  ],
+  "pdf_probe": "เส้นทางเดินป่าที่ยาวที่สุด"
+}

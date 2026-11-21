@@ -1,0 +1,18 @@
+{
+  "id": "lp_sp02_rebate_roads",
+  "title": "Rebate Roads",
+  "author": "Nonbangkok",
+  "categories": ["Graph"],
+  "difficulty": 1600,
+  "collection": "Learn — Intermediate",
+  "lesson": "shortest-paths",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 50$, $M \\leq 500$, $Q \\leq 100$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 100$, $M \\leq 2{,}000$, $Q \\leq 500$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (คิดใหม่ทุกคำถามไม่ทัน)" }
+  ],
+  "pdf_probe": "ไม่มีวงจรที่ผลรวมค่าผ่านทางติดลบ"
+}

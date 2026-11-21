@@ -1,0 +1,18 @@
+{
+  "id": "lp_gph03_rival_teams",
+  "title": "Rival Teams",
+  "author": "Nonbangkok",
+  "categories": ["Graph", "Binary Search"],
+  "difficulty": 1700,
+  "collection": "Learn — Intermediate",
+  "lesson": "graphs-bfs-dfs",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, M \\leq 100$" },
+    { "cases": 3, "percent": 30, "note": "$N, M \\leq 1{,}000$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (ตรวจใหม่ทุกครั้งที่เพิ่มคู่ไม่ทัน)" }
+  ],
+  "pdf_probe": "ไม่มีคู่อริอยู่ทีมเดียวกัน"
+}

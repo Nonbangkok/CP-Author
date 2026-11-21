@@ -1,0 +1,45 @@
+{
+  "slug": "trees",
+  "title": "Trees",
+  "summary": "กราฟที่ไม่มีวงจร: ตั้งราก หา parent, depth, subtree size, ทำ DP บนต้นไม้ หาเส้นผ่านศูนย์กลาง และตอบ LCA ด้วย binary lifting",
+  "lessons": [
+    {
+      "slug": "tree-basics",
+      "title": "Tree Basics",
+      "summary": "สมบัติของต้นไม้, ตั้งรากด้วย DFS แบบ stack, depth กับ subtree size, tree DP สองสถานะ และ diameter ด้วยการค้นสองรอบ",
+      "minutes": 23,
+      "file": "tree-basics.md",
+      "problems": [
+        {
+          "id": "lp_tr01_pair_walks",
+          "role": "example"
+        },
+        {
+          "id": "lp_tr02_longest_trail",
+          "role": "practice"
+        },
+        {
+          "id": "lp_tr03_office_party",
+          "role": "challenge"
+        }
+      ]
+    },
+    {
+      "slug": "lca",
+      "title": "Lowest Common Ancestor",
+      "summary": "LCA คืออะไร, ไล่ขึ้นทีละชั้นแบบตรง ๆ, binary lifting เต็ม template, ระยะทางระหว่างสองจุด และตัวอย่าง Euler tour",
+      "minutes": 18,
+      "file": "lca.md",
+      "problems": [
+        {
+          "id": "lp_lca01_family_tree",
+          "role": "example"
+        },
+        {
+          "id": "lp_lca02_detour",
+          "role": "practice"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "greedy",
+  "title": "Greedy",
+  "summary": "เลือกสิ่งที่ดีที่สุดตอนนี้แล้วไม่ย้อนกลับ พร้อมวิธีพิสูจน์ว่ามันไม่พลาดคำตอบที่ดีที่สุด",
+  "lessons": [
+    {
+      "slug": "greedy",
+      "title": "Greedy Choices and Exchange Arguments",
+      "summary": "greedy พังเมื่อไร, exchange argument, activity selection, การเรียงตาม key ที่ถูก, greedy คู่กับ priority_queue และ fractional knapsack",
+      "minutes": 26,
+      "file": "greedy.md",
+      "problems": [
+        {
+          "id": "lp_gr01_room_bookings",
+          "role": "example"
+        },
+        {
+          "id": "lp_gr02_deadline_jobs",
+          "role": "practice"
+        },
+        {
+          "id": "lp_gr03_on_time_tasks",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}

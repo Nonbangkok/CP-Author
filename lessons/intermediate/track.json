@@ -1,0 +1,6 @@
+{
+  "slug": "intermediate",
+  "title": "Intermediate",
+  "description": "ก้าวจากพื้นฐานไปสู่อัลกอริทึมจริงจัง: greedy, divide and conquer, การค้นหาใน state space, dynamic programming, กราฟ, ต้นไม้ และเทคนิคอย่าง monotonic stack, sweep line กับ string algorithms",
+  "modules": ["01-greedy", "02-divide-and-conquer", "03-search", "04-dynamic-programming", "05-graphs", "06-shortest-paths", "07-trees", "08-monotonic", "09-sweep-line", "10-strings"]
+}

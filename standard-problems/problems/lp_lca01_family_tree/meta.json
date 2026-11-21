@@ -1,0 +1,18 @@
+{
+  "id": "lp_lca01_family_tree",
+  "title": "Family Tree",
+  "author": "Nonbangkok",
+  "categories": ["Tree"],
+  "difficulty": 1600,
+  "collection": "Learn — Intermediate",
+  "lesson": "lca",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 10^5$ (ไล่ขึ้นทีละรุ่นไม่ทัน)" }
+  ],
+  "pdf_probe": "บรรพบุรุษร่วมที่ใกล้ที่สุด"
+}

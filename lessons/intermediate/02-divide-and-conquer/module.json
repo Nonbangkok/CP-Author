@@ -1,0 +1,28 @@
+{
+  "slug": "divide-and-conquer",
+  "title": "Divide and Conquer",
+  "summary": "แบ่งเป็นโจทย์ย่อยแบบเดียวกัน แก้ด้วย recursion แล้วรวมคำตอบ ตั้งแต่ merge sort ไปจนถึงการนับคู่และช่วงที่คร่อมกลาง",
+  "lessons": [
+    {
+      "slug": "divide-and-conquer",
+      "title": "Divide and Conquer",
+      "summary": "split / solve / combine, recursion tree กับ O(n log n), merge sort, นับ inversion ระหว่าง merge, maximum subarray แบบแบ่งครึ่ง และชิมลาง closest pair",
+      "minutes": 21,
+      "file": "divide-and-conquer.md",
+      "problems": [
+        {
+          "id": "lp_dc01_taller_in_front",
+          "role": "example"
+        },
+        {
+          "id": "lp_dc02_twice_as_big",
+          "role": "practice"
+        },
+        {
+          "id": "lp_dc03_minus_the_max",
+          "role": "challenge"
+        }
+      ]
+    }
+  ]
+}
