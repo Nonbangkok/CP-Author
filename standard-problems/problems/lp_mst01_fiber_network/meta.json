@@ -1,0 +1,18 @@
+{
+  "id": "lp_mst01_fiber_network",
+  "title": "Fiber Network",
+  "author": "Nonbangkok",
+  "categories": ["Graph", "Greedy"],
+  "difficulty": 1600,
+  "collection": "Learn — Advanced",
+  "lesson": "mst",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$, $M \\leq 3{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N \\leq 3{,}000$, $M \\leq 6{,}000$" },
+    { "cases": 4, "percent": 40, "note": "ไม่มีเงื่อนไขเพิ่มเติม (เช็กวงด้วยการเดินกราฟทุกครั้งไม่ทัน)" }
+  ],
+  "pdf_probe": "ค่าเดินสายรวมที่น้อยที่สุด"
+}

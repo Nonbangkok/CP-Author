@@ -1,0 +1,18 @@
+{
+  "id": "lp_seg02_best_streak",
+  "title": "Best Streak",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1900,
+  "collection": "Learn — Advanced",
+  "lesson": "segment-tree",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 5 \\times 10^4$ (ไล่หาช่วงที่ดีที่สุดใหม่ทุกคำถามไม่ทัน)" }
+  ],
+  "pdf_probe": "ผลรวมกำไรของช่วงวันติดกัน"
+}

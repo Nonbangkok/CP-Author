@@ -1,0 +1,18 @@
+{
+  "slug": "math",
+  "title": "Math Tools",
+  "summary": "คณิตศาสตร์สายแข่งขันขั้นสูง: แปลง recurrence เชิงเส้นเป็นเมทริกซ์แล้วยกกำลังเร็ว",
+  "lessons": [
+    {
+      "slug": "matrix-exponentiation",
+      "title": "Matrix Exponentiation",
+      "summary": "เขียน recurrence เชิงเส้นเป็นการคูณเมทริกซ์ ยกกำลังแบบ binary exponentiation ใน O(k^3 log N) และนับ walk ยาว L บนกราฟด้วย A^L",
+      "minutes": 23,
+      "file": "matrix-exponentiation.md",
+      "problems": [
+        { "id": "lp_mat01_magic_beanstalk", "role": "example" },
+        { "id": "lp_mat02_patrol_routes", "role": "challenge" }
+      ]
+    }
+  ]
+}

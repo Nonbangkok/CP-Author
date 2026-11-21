@@ -1,7 +1,8 @@
 # Curriculum plan
 
-Owner's topic list and writing decisions (2026-11-20). Status: plan, awaiting
-the owner's go-ahead per batch.
+Owner's topic list and writing decisions (2026-11-20). Status: all three
+batches written and verified (2026-11-20); waiting for the owner's review and
+the production import (steps at the end of this file).
 
 ## Decisions
 
@@ -83,7 +84,36 @@ Total: 29 lessons, about 82 new problems.
    one serial run (references <= 31% of the limit, slow.cpp >= 3.1x over it); the 69-problem ZIP
    (239 MiB uncompressed) and the 31-lesson bundle import cleanly with the OJ's importers.
    Reading times calibrated to ~1,125 bytes per minute (18–28 min).
-4. **Batch 3 — Advanced** (5 lessons, ~13 problems).
+4. **Batch 3 — Advanced** (5 lessons, ~13 problems). **Written (2026-11-20):** 5 lessons in
+   `lessons/advanced/` (MST, Fenwick Tree, Segment Tree, Lazy Propagation, Matrix Exponentiation),
+   13 problems `lp_*` (mst, fw, seg, lazy, mat). All 82 problems verified in one serial run
+   (Batch 3 references <= 7% of the limit, Python <= 14% of its x4 limit, slow.cpp >= 3.0x over
+   it); the 82-problem ZIP (302 MiB uncompressed, 1,804 entries) and the 36-lesson bundle import cleanly with the OJ's importers.
+   Fenwick and segment trees are sized at N, Q <= 5*10^4 so Python passes with room to spare.
 
 Each batch: problems built and verified → imported into the grader (hidden,
 then published) → lessons bundle dry-run → owner review → import.
+
+**End-to-end check (2026-11-20).** The 82-problem ZIP and the 36-lesson bundle
+went through the OJ's own importers on a throwaway stack (Postgres 18 + backend
++ Vite, OJ branch `feat/lessons-phase2`): batch upload, Manage › Lessons dry run
+(+36, no issues) and import, bulk publish, then every lesson opened in the
+browser — KaTeX without errors, code tabs, problem cards and practice tables,
+no horizontal overflow at 375 px — and the guest / learner / staff views of a
+hidden problem, a contest problem and a hidden track. No content change was
+needed.
+
+## Production import (owner)
+
+After OJ #58 and #59 are deployed and CP-Author #2 → #3 → #4 are merged, in a
+checkout of `main`:
+
+1. `cd standard-problems && ./run.sh build --all` → `dist/standard-problems.zip`
+   (~124 MiB). Production Manage › Problems → Import ZIP. The 82 `lp_*`
+   problems arrive hidden in the "Learn — …" collections.
+2. Publish them: Hidden tab → select all → Show, until the tab reads 0.
+3. `cd ../lessons && ./run.sh build` → `dist/lessons-bundle.zip`. Production
+   Manage › Lessons → drop it; the dry run must show +36 added, 0 issues, four
+   new tracks. Import. (Tracks are visible at once; Hide them on that page
+   first if you want to read them as staff before learners do.)
+

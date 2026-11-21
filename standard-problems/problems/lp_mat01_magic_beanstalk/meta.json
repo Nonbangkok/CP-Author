@@ -1,0 +1,18 @@
+{
+  "id": "lp_mat01_magic_beanstalk",
+  "title": "Magic Beanstalk",
+  "author": "Nonbangkok",
+  "categories": ["Math"],
+  "difficulty": 1700,
+  "collection": "Learn — Advanced",
+  "lesson": "matrix-exponentiation",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N \\leq 1{,}000$" },
+    { "cases": 2, "percent": 20, "note": "$N \\leq 10^7$" },
+    { "cases": 5, "percent": 50, "note": "ไม่มีเงื่อนไขเพิ่มเติม ($N$ ใหญ่ได้ถึง $10^{18}$ ไล่ทีละวันไม่ทัน)" }
+  ],
+  "pdf_probe": "ยักษ์ใจดีแอบเอาใบมาติดเพิ่ม"
+}

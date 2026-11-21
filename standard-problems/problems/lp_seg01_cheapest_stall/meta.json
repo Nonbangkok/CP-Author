@@ -1,0 +1,18 @@
+{
+  "id": "lp_seg01_cheapest_stall",
+  "title": "Cheapest Stall",
+  "author": "Nonbangkok",
+  "categories": ["Data Structures"],
+  "difficulty": 1600,
+  "collection": "Learn — Advanced",
+  "lesson": "segment-tree",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "has_tle_subtask": true,
+  "subtasks": [
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 1{,}000$" },
+    { "cases": 3, "percent": 30, "note": "$N, Q \\leq 5{,}000$" },
+    { "cases": 4, "percent": 40, "note": "$N, Q \\leq 5 \\times 10^4$ (ไล่ดูทุกร้านในช่วงทุกคำถามไม่ทัน)" }
+  ],
+  "pdf_probe": "ราคาที่ถูกที่สุดในช่วงนั้น"
+}
